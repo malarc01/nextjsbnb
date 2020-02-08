@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -110,66 +110,133 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
 /* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_day_picker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-day-picker */ "react-day-picker");
+/* harmony import */ var react_day_picker__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_day_picker__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var date_fns_esm_format_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! date-fns/esm/format/index */ "date-fns/esm/format/index");
+/* harmony import */ var date_fns_esm_format_index__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(date_fns_esm_format_index__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var date_fns_parse__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! date-fns/parse */ "date-fns/parse");
+/* harmony import */ var date_fns_parse__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(date_fns_parse__WEBPACK_IMPORTED_MODULE_6__);
 var _jsxFileName = "/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
-/* harmony default export */ __webpack_exports__["default"] = (() => __jsx("div", {
-  className: "jsx-3496931869" + " " + 'date-range-picker-container',
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 4
-  },
-  __self: undefined
-}, __jsx("div", {
-  className: "jsx-3496931869",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 5
-  },
-  __self: undefined
-}, __jsx("label", {
-  className: "jsx-3496931869",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 6
-  },
-  __self: undefined
-}, "From:"), __jsx(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default.a, {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 7
-  },
-  __self: undefined
-})), __jsx("div", {
-  className: "jsx-3496931869",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 9
-  },
-  __self: undefined
-}, __jsx("label", {
-  className: "jsx-3496931869",
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 10
-  },
-  __self: undefined
-}, "To:"), __jsx(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default.a, {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 11
-  },
-  __self: undefined
-})), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-  id: "3818603719",
-  __self: undefined
-}, ".date-range-picker-container.jsx-3496931869 div.jsx-3496931869{display:grid;border:1px solid #ddd;grid-template-columns:30% 70%;padding:10px;}label.jsx-3496931869{padding-top:10px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBY2EsQUFHNkIsQUFRSSxhQVBLLElBU3pCLGtCQVJpQyw4QkFDakIsYUFHaEIiLCJmaWxlIjoiL1VzZXJzL2FkbWluL0xhbWJkYSBDb3Vyc2V3b3JrL25leHRqc2JuYi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBEYXlQaWNrZXJJbnB1dCBmcm9tICdyZWFjdC1kYXktcGlja2VyL0RheVBpY2tlcklucHV0J1xuaW1wb3J0ICdyZWFjdC1kYXktcGlja2VyL2xpYi9zdHlsZS5jc3MnXG5leHBvcnQgZGVmYXVsdCAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9J2RhdGUtcmFuZ2UtcGlja2VyLWNvbnRhaW5lcic+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWw+RnJvbTo8L2xhYmVsPlxuICAgICAgICAgICAgPERheVBpY2tlcklucHV0IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsPlRvOjwvbGFiZWw+XG4gICAgICAgICAgICA8RGF5UGlja2VySW5wdXQgLz5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPHN0eWxlIGpzeD5cbiAgICAgICAgICAgIHtgXG4gICAgICAgICAgICAuZGF0ZS1yYW5nZS1waWNrZXItY29udGFpbmVyIGRpdntcbiAgICAgICAgICAgICAgICBkaXNwbGF5OmdyaWQ7XG4gICAgICAgICAgICAgICAgYm9yZGVyOjFweCBzb2xpZCAjZGRkO1xuICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczozMCUgNzAlO1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6MTBweDtcbiAgICAgICAgICAgICAgICBcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgbGFiZWx7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6MTBweDtcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgYH1cbiAgICAgICAgPC9zdHlsZT5cbiAgICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICAgICAgLkRheVBpY2tlcklucHV0IGlucHV0e1xuICAgICAgICAgICAgd2lkdGg6MTIwcHg7XG4gICAgICAgICAgICBwYWRkaW5nOjEwcHg7XG4gICAgICAgICAgICBmb250LXNpemU6MTZweDtcblxuICAgICAgICB9YH1cblxuICAgICAgICA8L3N0eWxlPlxuXG5cblxuXG4gICAgPC9kaXY+XG4pIl19 */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js */"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-  id: "2500223379",
-  __self: undefined
-}, ".DayPickerInput input{width:120px;padding:10px;font-size:16px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkIyQixBQUd3QixZQUNDLGFBQ0UsZUFFbEIiLCJmaWxlIjoiL1VzZXJzL2FkbWluL0xhbWJkYSBDb3Vyc2V3b3JrL25leHRqc2JuYi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBEYXlQaWNrZXJJbnB1dCBmcm9tICdyZWFjdC1kYXktcGlja2VyL0RheVBpY2tlcklucHV0J1xuaW1wb3J0ICdyZWFjdC1kYXktcGlja2VyL2xpYi9zdHlsZS5jc3MnXG5leHBvcnQgZGVmYXVsdCAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9J2RhdGUtcmFuZ2UtcGlja2VyLWNvbnRhaW5lcic+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWw+RnJvbTo8L2xhYmVsPlxuICAgICAgICAgICAgPERheVBpY2tlcklucHV0IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsPlRvOjwvbGFiZWw+XG4gICAgICAgICAgICA8RGF5UGlja2VySW5wdXQgLz5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPHN0eWxlIGpzeD5cbiAgICAgICAgICAgIHtgXG4gICAgICAgICAgICAuZGF0ZS1yYW5nZS1waWNrZXItY29udGFpbmVyIGRpdntcbiAgICAgICAgICAgICAgICBkaXNwbGF5OmdyaWQ7XG4gICAgICAgICAgICAgICAgYm9yZGVyOjFweCBzb2xpZCAjZGRkO1xuICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczozMCUgNzAlO1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6MTBweDtcbiAgICAgICAgICAgICAgICBcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgbGFiZWx7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6MTBweDtcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgYH1cbiAgICAgICAgPC9zdHlsZT5cbiAgICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICAgICAgLkRheVBpY2tlcklucHV0IGlucHV0e1xuICAgICAgICAgICAgd2lkdGg6MTIwcHg7XG4gICAgICAgICAgICBwYWRkaW5nOjEwcHg7XG4gICAgICAgICAgICBmb250LXNpemU6MTZweDtcblxuICAgICAgICB9YH1cblxuICAgICAgICA8L3N0eWxlPlxuXG5cblxuXG4gICAgPC9kaXY+XG4pIl19 */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js */")));
+
+
+ // import { format } from 'date-fns'
+
+
+
+const parseDate = (str, format, locale) => {
+  const parsed = date_fns_parse__WEBPACK_IMPORTED_MODULE_6___default()(str, format, new Date(), {
+    locale
+  });
+  return react_day_picker__WEBPACK_IMPORTED_MODULE_4__["DateUtils"].isDate(parsed) ? parsed : null;
+};
+
+const formatDate = (date, format, locale) => {
+  date_fns_esm_format_index__WEBPACK_IMPORTED_MODULE_5___default()(date, format, {
+    locale
+  });
+};
+
+const format = 'dd MMM yyyy';
+const today = new Date();
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+/* harmony default export */ __webpack_exports__["default"] = (() => {
+  const {
+    0: startDate,
+    1: setStartDate
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(new Date());
+  const {
+    0: endDate,
+    1: setEndDate
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(new Date());
+  return __jsx("div", {
+    className: "jsx-3496931869" + " " + 'date-range-picker-container',
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }, __jsx("div", {
+    className: "jsx-3496931869",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: undefined
+  }, __jsx("label", {
+    className: "jsx-3496931869",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: undefined
+  }, "From:"), __jsx(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    formatDate: formatDate,
+    format: format,
+    parseDate: parseDate,
+    placeholder: `${date_fns_esm_format_index__WEBPACK_IMPORTED_MODULE_5___default()(new Date(), format)}`,
+    dayPickerProps: {
+      modifiers: {
+        disabled: {
+          before: new Date()
+        }
+      }
+    },
+    onChange: day => {
+      setStartDate(day);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: undefined
+  })), __jsx("div", {
+    className: "jsx-3496931869",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: undefined
+  }, __jsx("label", {
+    className: "jsx-3496931869",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  }, "To:"), __jsx(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    formatDate: formatDate,
+    format: format,
+    parseDate: parseDate,
+    placeholder: `${date_fns_esm_format_index__WEBPACK_IMPORTED_MODULE_5___default()(new Date(), format)}`,
+    dayPickerProps: {
+      modifiers: {
+        disabled: [new Date(), {
+          before: new Date()
+        }]
+      }
+    },
+    onChange: day => {
+      setEndDate(day);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 56
+    },
+    __self: undefined
+  })), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "3818603719",
+    __self: undefined
+  }, ".date-range-picker-container.jsx-3496931869 div.jsx-3496931869{display:grid;border:1px solid #ddd;grid-template-columns:30% 70%;padding:10px;}label.jsx-3496931869{padding-top:10px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkVpQixBQUc2QixBQVFJLGFBUEssSUFTekIsa0JBUmlDLDhCQUNqQixhQUdoQiIsImZpbGUiOiIvVXNlcnMvYWRtaW4vTGFtYmRhIENvdXJzZXdvcmsvbmV4dGpzYm5iL2NvbXBvbmVudHMvRGF0ZVJhbmdlUGlja2VyLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCdcbmltcG9ydCBEYXlQaWNrZXJJbnB1dCBmcm9tICdyZWFjdC1kYXktcGlja2VyL0RheVBpY2tlcklucHV0J1xuaW1wb3J0ICdyZWFjdC1kYXktcGlja2VyL2xpYi9zdHlsZS5jc3MnXG5pbXBvcnQgeyBEYXRlVXRpbHMgfSBmcm9tICdyZWFjdC1kYXktcGlja2VyJ1xuXG5cbmltcG9ydCBkYXRlRm5zRm9ybWF0IGZyb20gJ2RhdGUtZm5zL2VzbS9mb3JtYXQvaW5kZXgnXG4vLyBpbXBvcnQgeyBmb3JtYXQgfSBmcm9tICdkYXRlLWZucydcbmltcG9ydCBkYXRlRm5zUGFyc2UgZnJvbSAnZGF0ZS1mbnMvcGFyc2UnXG5cbmNvbnN0IHBhcnNlRGF0ZSA9IChzdHIsIGZvcm1hdCwgbG9jYWxlKSA9PiB7XG4gICAgY29uc3QgcGFyc2VkID0gZGF0ZUZuc1BhcnNlKHN0ciwgZm9ybWF0LCBuZXcgRGF0ZSgpLCB7IGxvY2FsZSB9KVxuICAgIHJldHVybiBEYXRlVXRpbHMuaXNEYXRlKHBhcnNlZCkgPyBwYXJzZWQgOiBudWxsXG59XG5cblxuY29uc3QgZm9ybWF0RGF0ZSA9IChkYXRlLCBmb3JtYXQsIGxvY2FsZSkgPT4ge1xuICAgIGRhdGVGbnNGb3JtYXQoZGF0ZSwgZm9ybWF0LCB7IGxvY2FsZSB9KVxufVxuXG5jb25zdCBmb3JtYXQgPSAnZGQgTU1NIHl5eXknXG5cbmNvbnN0IHRvZGF5ID0gbmV3IERhdGUoKVxuY29uc3QgdG9tb3Jyb3cgPSBuZXcgRGF0ZSh0b2RheSlcbnRvbW9ycm93LnNldERhdGUodG9tb3Jyb3cuZ2V0RGF0ZSgpICsgMSlcblxuXG5cbmV4cG9ydCBkZWZhdWx0ICgpID0+IHtcbiAgICBjb25zdCBbc3RhcnREYXRlLCBzZXRTdGFydERhdGVdID0gdXNlU3RhdGUobmV3IERhdGUoKSlcbiAgICBjb25zdCBbZW5kRGF0ZSwgc2V0RW5kRGF0ZV0gPSB1c2VTdGF0ZShuZXcgRGF0ZSgpKVxuXG4gICAgcmV0dXJuIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9J2RhdGUtcmFuZ2UtcGlja2VyLWNvbnRhaW5lcic+XG4gICAgICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgICAgIDxsYWJlbD5Gcm9tOjwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPERheVBpY2tlcklucHV0XG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdERhdGU9e2Zvcm1hdERhdGV9XG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdD17Zm9ybWF0fVxuICAgICAgICAgICAgICAgICAgICBwYXJzZURhdGU9e3BhcnNlRGF0ZX1cbiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9e2Ake2RhdGVGbnNGb3JtYXQobmV3IERhdGUoKSwgZm9ybWF0KX1gfVxuICAgICAgICAgICAgICAgICAgICBkYXlQaWNrZXJQcm9wcz17e1xuICAgICAgICAgICAgICAgICAgICAgICAgbW9kaWZpZXJzOiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ6IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmVmb3JlOiBuZXcgRGF0ZSgpXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17ZGF5ID0+IHtcbiAgICAgICAgICAgICAgICAgICAgICAgIHNldFN0YXJ0RGF0ZShkYXkpXG4gICAgICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWw+VG86PC9sYWJlbD5cbiAgICAgICAgICAgICAgICA8RGF5UGlja2VySW5wdXRcbiAgICAgICAgICAgICAgICAgICAgZm9ybWF0RGF0ZT17Zm9ybWF0RGF0ZX1cbiAgICAgICAgICAgICAgICAgICAgZm9ybWF0PXtmb3JtYXR9XG4gICAgICAgICAgICAgICAgICAgIHBhcnNlRGF0ZT17cGFyc2VEYXRlfVxuICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj17YCR7ZGF0ZUZuc0Zvcm1hdChuZXcgRGF0ZSgpLCBmb3JtYXQpfWB9XG4gICAgICAgICAgICAgICAgICAgIGRheVBpY2tlclByb3BzPXt7XG4gICAgICAgICAgICAgICAgICAgICAgICBtb2RpZmllcnM6IHtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNhYmxlZDogW1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXcgRGF0ZSgpLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZWZvcmU6IG5ldyBEYXRlKClcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIF1cbiAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2RheSA9PiB7XG4gICAgICAgICAgICAgICAgICAgICAgICBzZXRFbmREYXRlKGRheSlcbiAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgIDxzdHlsZSBqc3g+XG4gICAgICAgICAgICAgICAge2BcbiAgICAgICAgICAgIC5kYXRlLXJhbmdlLXBpY2tlci1jb250YWluZXIgZGl2e1xuICAgICAgICAgICAgICAgIGRpc3BsYXk6Z3JpZDtcbiAgICAgICAgICAgICAgICBib3JkZXI6MXB4IHNvbGlkICNkZGQ7XG4gICAgICAgICAgICAgICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOjMwJSA3MCU7XG4gICAgICAgICAgICAgICAgcGFkZGluZzoxMHB4O1xuICAgICAgICAgICAgICAgIFxuXG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBsYWJlbHtcbiAgICAgICAgICAgICAgICBwYWRkaW5nLXRvcDoxMHB4O1xuXG4gICAgICAgICAgICB9XG4gICAgICAgICAgICBgfVxuICAgICAgICAgICAgPC9zdHlsZT5cbiAgICAgICAgICAgIDxzdHlsZSBqc3ggZ2xvYmFsPntgXG4gICAgICAgIC5EYXlQaWNrZXJJbnB1dCBpbnB1dHtcbiAgICAgICAgICAgIHdpZHRoOjEyMHB4O1xuICAgICAgICAgICAgcGFkZGluZzoxMHB4O1xuICAgICAgICAgICAgZm9udC1zaXplOjE2cHg7XG5cbiAgICAgICAgfWB9XG5cbiAgICAgICAgICAgIDwvc3R5bGU+XG5cbiAgICAgICAgPC9kaXY+XG5cbiAgICApXG59XG4iXX0= */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js */"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "2500223379",
+    __self: undefined
+  }, ".DayPickerInput input{width:120px;padding:10px;font-size:16px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNEYrQixBQUd3QixZQUNDLGFBQ0UsZUFFbEIiLCJmaWxlIjoiL1VzZXJzL2FkbWluL0xhbWJkYSBDb3Vyc2V3b3JrL25leHRqc2JuYi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnXG5pbXBvcnQgRGF5UGlja2VySW5wdXQgZnJvbSAncmVhY3QtZGF5LXBpY2tlci9EYXlQaWNrZXJJbnB1dCdcbmltcG9ydCAncmVhY3QtZGF5LXBpY2tlci9saWIvc3R5bGUuY3NzJ1xuaW1wb3J0IHsgRGF0ZVV0aWxzIH0gZnJvbSAncmVhY3QtZGF5LXBpY2tlcidcblxuXG5pbXBvcnQgZGF0ZUZuc0Zvcm1hdCBmcm9tICdkYXRlLWZucy9lc20vZm9ybWF0L2luZGV4J1xuLy8gaW1wb3J0IHsgZm9ybWF0IH0gZnJvbSAnZGF0ZS1mbnMnXG5pbXBvcnQgZGF0ZUZuc1BhcnNlIGZyb20gJ2RhdGUtZm5zL3BhcnNlJ1xuXG5jb25zdCBwYXJzZURhdGUgPSAoc3RyLCBmb3JtYXQsIGxvY2FsZSkgPT4ge1xuICAgIGNvbnN0IHBhcnNlZCA9IGRhdGVGbnNQYXJzZShzdHIsIGZvcm1hdCwgbmV3IERhdGUoKSwgeyBsb2NhbGUgfSlcbiAgICByZXR1cm4gRGF0ZVV0aWxzLmlzRGF0ZShwYXJzZWQpID8gcGFyc2VkIDogbnVsbFxufVxuXG5cbmNvbnN0IGZvcm1hdERhdGUgPSAoZGF0ZSwgZm9ybWF0LCBsb2NhbGUpID0+IHtcbiAgICBkYXRlRm5zRm9ybWF0KGRhdGUsIGZvcm1hdCwgeyBsb2NhbGUgfSlcbn1cblxuY29uc3QgZm9ybWF0ID0gJ2RkIE1NTSB5eXl5J1xuXG5jb25zdCB0b2RheSA9IG5ldyBEYXRlKClcbmNvbnN0IHRvbW9ycm93ID0gbmV3IERhdGUodG9kYXkpXG50b21vcnJvdy5zZXREYXRlKHRvbW9ycm93LmdldERhdGUoKSArIDEpXG5cblxuXG5leHBvcnQgZGVmYXVsdCAoKSA9PiB7XG4gICAgY29uc3QgW3N0YXJ0RGF0ZSwgc2V0U3RhcnREYXRlXSA9IHVzZVN0YXRlKG5ldyBEYXRlKCkpXG4gICAgY29uc3QgW2VuZERhdGUsIHNldEVuZERhdGVdID0gdXNlU3RhdGUobmV3IERhdGUoKSlcblxuICAgIHJldHVybiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPSdkYXRlLXJhbmdlLXBpY2tlci1jb250YWluZXInPlxuICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8bGFiZWw+RnJvbTo8L2xhYmVsPlxuICAgICAgICAgICAgICAgIDxEYXlQaWNrZXJJbnB1dFxuICAgICAgICAgICAgICAgICAgICBmb3JtYXREYXRlPXtmb3JtYXREYXRlfVxuICAgICAgICAgICAgICAgICAgICBmb3JtYXQ9e2Zvcm1hdH1cbiAgICAgICAgICAgICAgICAgICAgcGFyc2VEYXRlPXtwYXJzZURhdGV9XG4gICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPXtgJHtkYXRlRm5zRm9ybWF0KG5ldyBEYXRlKCksIGZvcm1hdCl9YH1cbiAgICAgICAgICAgICAgICAgICAgZGF5UGlja2VyUHJvcHM9e3tcbiAgICAgICAgICAgICAgICAgICAgICAgIG1vZGlmaWVyczoge1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc2FibGVkOiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJlZm9yZTogbmV3IERhdGUoKVxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgfX1cbiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2RheSA9PiB7XG4gICAgICAgICAgICAgICAgICAgICAgICBzZXRTdGFydERhdGUoZGF5KVxuICAgICAgICAgICAgICAgICAgICB9fVxuICAgICAgICAgICAgICAgIC8+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICAgICAgPGxhYmVsPlRvOjwvbGFiZWw+XG4gICAgICAgICAgICAgICAgPERheVBpY2tlcklucHV0XG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdERhdGU9e2Zvcm1hdERhdGV9XG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdD17Zm9ybWF0fVxuICAgICAgICAgICAgICAgICAgICBwYXJzZURhdGU9e3BhcnNlRGF0ZX1cbiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9e2Ake2RhdGVGbnNGb3JtYXQobmV3IERhdGUoKSwgZm9ybWF0KX1gfVxuICAgICAgICAgICAgICAgICAgICBkYXlQaWNrZXJQcm9wcz17e1xuICAgICAgICAgICAgICAgICAgICAgICAgbW9kaWZpZXJzOiB7XG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ6IFtcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV3IERhdGUoKSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge1xuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmVmb3JlOiBuZXcgRGF0ZSgpXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBdXG4gICAgICAgICAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtkYXkgPT4ge1xuICAgICAgICAgICAgICAgICAgICAgICAgc2V0RW5kRGF0ZShkYXkpXG4gICAgICAgICAgICAgICAgICAgIH19XG4gICAgICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDwvZGl2PlxuXG4gICAgICAgICAgICA8c3R5bGUganN4PlxuICAgICAgICAgICAgICAgIHtgXG4gICAgICAgICAgICAuZGF0ZS1yYW5nZS1waWNrZXItY29udGFpbmVyIGRpdntcbiAgICAgICAgICAgICAgICBkaXNwbGF5OmdyaWQ7XG4gICAgICAgICAgICAgICAgYm9yZGVyOjFweCBzb2xpZCAjZGRkO1xuICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczozMCUgNzAlO1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6MTBweDtcbiAgICAgICAgICAgICAgICBcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgbGFiZWx7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6MTBweDtcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgYH1cbiAgICAgICAgICAgIDwvc3R5bGU+XG4gICAgICAgICAgICA8c3R5bGUganN4IGdsb2JhbD57YFxuICAgICAgICAuRGF5UGlja2VySW5wdXQgaW5wdXR7XG4gICAgICAgICAgICB3aWR0aDoxMjBweDtcbiAgICAgICAgICAgIHBhZGRpbmc6MTBweDtcbiAgICAgICAgICAgIGZvbnQtc2l6ZToxNnB4O1xuXG4gICAgICAgIH1gfVxuXG4gICAgICAgICAgICA8L3N0eWxlPlxuXG4gICAgICAgIDwvZGl2PlxuXG4gICAgKVxufVxuIl19 */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js */"));
+});
 
 /***/ }),
 
@@ -2300,7 +2367,7 @@ House.getInitialProps = ({
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!************************************!*\
   !*** multi ./pages/houses/[id].js ***!
   \************************************/
@@ -2422,6 +2489,28 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
+/***/ "date-fns/esm/format/index":
+/*!********************************************!*\
+  !*** external "date-fns/esm/format/index" ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("date-fns/esm/format/index");
+
+/***/ }),
+
+/***/ "date-fns/parse":
+/*!*********************************!*\
+  !*** external "date-fns/parse" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("date-fns/parse");
+
+/***/ }),
+
 /***/ "next/head":
 /*!****************************!*\
   !*** external "next/head" ***!
@@ -2463,6 +2552,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-day-picker":
+/*!***********************************!*\
+  !*** external "react-day-picker" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-day-picker");
 
 /***/ }),
 
