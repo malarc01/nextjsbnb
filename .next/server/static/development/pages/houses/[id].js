@@ -93,6 +93,86 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/DateRangePicker.js":
+/*!***************************************!*\
+  !*** ./components/DateRangePicker.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-day-picker/DayPickerInput */ "react-day-picker/DayPickerInput");
+/* harmony import */ var react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-day-picker/lib/style.css */ "./node_modules/react-day-picker/lib/style.css");
+/* harmony import */ var react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_day_picker_lib_style_css__WEBPACK_IMPORTED_MODULE_3__);
+var _jsxFileName = "/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js";
+
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+/* harmony default export */ __webpack_exports__["default"] = (() => __jsx("div", {
+  className: "jsx-3496931869" + " " + 'date-range-picker-container',
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 4
+  },
+  __self: undefined
+}, __jsx("div", {
+  className: "jsx-3496931869",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 5
+  },
+  __self: undefined
+}, __jsx("label", {
+  className: "jsx-3496931869",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 6
+  },
+  __self: undefined
+}, "From:"), __jsx(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 7
+  },
+  __self: undefined
+})), __jsx("div", {
+  className: "jsx-3496931869",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 9
+  },
+  __self: undefined
+}, __jsx("label", {
+  className: "jsx-3496931869",
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 10
+  },
+  __self: undefined
+}, "To:"), __jsx(react_day_picker_DayPickerInput__WEBPACK_IMPORTED_MODULE_2___default.a, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 11
+  },
+  __self: undefined
+})), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+  id: "3818603719",
+  __self: undefined
+}, ".date-range-picker-container.jsx-3496931869 div.jsx-3496931869{display:grid;border:1px solid #ddd;grid-template-columns:30% 70%;padding:10px;}label.jsx-3496931869{padding-top:10px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBY2EsQUFHNkIsQUFRSSxhQVBLLElBU3pCLGtCQVJpQyw4QkFDakIsYUFHaEIiLCJmaWxlIjoiL1VzZXJzL2FkbWluL0xhbWJkYSBDb3Vyc2V3b3JrL25leHRqc2JuYi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBEYXlQaWNrZXJJbnB1dCBmcm9tICdyZWFjdC1kYXktcGlja2VyL0RheVBpY2tlcklucHV0J1xuaW1wb3J0ICdyZWFjdC1kYXktcGlja2VyL2xpYi9zdHlsZS5jc3MnXG5leHBvcnQgZGVmYXVsdCAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9J2RhdGUtcmFuZ2UtcGlja2VyLWNvbnRhaW5lcic+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWw+RnJvbTo8L2xhYmVsPlxuICAgICAgICAgICAgPERheVBpY2tlcklucHV0IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsPlRvOjwvbGFiZWw+XG4gICAgICAgICAgICA8RGF5UGlja2VySW5wdXQgLz5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPHN0eWxlIGpzeD5cbiAgICAgICAgICAgIHtgXG4gICAgICAgICAgICAuZGF0ZS1yYW5nZS1waWNrZXItY29udGFpbmVyIGRpdntcbiAgICAgICAgICAgICAgICBkaXNwbGF5OmdyaWQ7XG4gICAgICAgICAgICAgICAgYm9yZGVyOjFweCBzb2xpZCAjZGRkO1xuICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczozMCUgNzAlO1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6MTBweDtcbiAgICAgICAgICAgICAgICBcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgbGFiZWx7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6MTBweDtcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgYH1cbiAgICAgICAgPC9zdHlsZT5cbiAgICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICAgICAgLkRheVBpY2tlcklucHV0IGlucHV0e1xuICAgICAgICAgICAgd2lkdGg6MTIwcHg7XG4gICAgICAgICAgICBwYWRkaW5nOjEwcHg7XG4gICAgICAgICAgICBmb250LXNpemU6MTZweDtcblxuICAgICAgICB9YH1cblxuICAgICAgICA8L3N0eWxlPlxuXG5cblxuXG4gICAgPC9kaXY+XG4pIl19 */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js */"), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+  id: "2500223379",
+  __self: undefined
+}, ".DayPickerInput input{width:120px;padding:10px;font-size:16px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNkIyQixBQUd3QixZQUNDLGFBQ0UsZUFFbEIiLCJmaWxlIjoiL1VzZXJzL2FkbWluL0xhbWJkYSBDb3Vyc2V3b3JrL25leHRqc2JuYi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBEYXlQaWNrZXJJbnB1dCBmcm9tICdyZWFjdC1kYXktcGlja2VyL0RheVBpY2tlcklucHV0J1xuaW1wb3J0ICdyZWFjdC1kYXktcGlja2VyL2xpYi9zdHlsZS5jc3MnXG5leHBvcnQgZGVmYXVsdCAoKSA9PiAoXG4gICAgPGRpdiBjbGFzc05hbWU9J2RhdGUtcmFuZ2UtcGlja2VyLWNvbnRhaW5lcic+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8bGFiZWw+RnJvbTo8L2xhYmVsPlxuICAgICAgICAgICAgPERheVBpY2tlcklucHV0IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgICAgPGxhYmVsPlRvOjwvbGFiZWw+XG4gICAgICAgICAgICA8RGF5UGlja2VySW5wdXQgLz5cbiAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgPHN0eWxlIGpzeD5cbiAgICAgICAgICAgIHtgXG4gICAgICAgICAgICAuZGF0ZS1yYW5nZS1waWNrZXItY29udGFpbmVyIGRpdntcbiAgICAgICAgICAgICAgICBkaXNwbGF5OmdyaWQ7XG4gICAgICAgICAgICAgICAgYm9yZGVyOjFweCBzb2xpZCAjZGRkO1xuICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczozMCUgNzAlO1xuICAgICAgICAgICAgICAgIHBhZGRpbmc6MTBweDtcbiAgICAgICAgICAgICAgICBcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgbGFiZWx7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6MTBweDtcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgYH1cbiAgICAgICAgPC9zdHlsZT5cbiAgICAgICAgPHN0eWxlIGpzeCBnbG9iYWw+e2BcbiAgICAgICAgLkRheVBpY2tlcklucHV0IGlucHV0e1xuICAgICAgICAgICAgd2lkdGg6MTIwcHg7XG4gICAgICAgICAgICBwYWRkaW5nOjEwcHg7XG4gICAgICAgICAgICBmb250LXNpemU6MTZweDtcblxuICAgICAgICB9YH1cblxuICAgICAgICA8L3N0eWxlPlxuXG5cblxuXG4gICAgPC9kaXY+XG4pIl19 */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/components/DateRangePicker.js */")));
+
+/***/ }),
+
 /***/ "./components/Header.js":
 /*!******************************!*\
   !*** ./components/Header.js ***!
@@ -2064,6 +2144,17 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 /***/ }),
 
+/***/ "./node_modules/react-day-picker/lib/style.css":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-day-picker/lib/style.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./pages/houses.json":
 /*!***************************!*\
   !*** ./pages/houses.json ***!
@@ -2093,10 +2184,12 @@ var _houses_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/head */ "next/head");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Layout */ "./components/Layout.js");
+/* harmony import */ var _components_DateRangePicker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/DateRangePicker */ "./components/DateRangePicker.js");
 var _jsxFileName = "/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js";
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
 
 
 
@@ -2106,27 +2199,27 @@ const House = props => __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["de
     className: "jsx-231133359" + " " + 'container',
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: undefined
   }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 11
     },
     __self: undefined
   }, __jsx("title", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
     },
     __self: undefined
   }, props.house.title)), __jsx("article", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 14
     },
     __self: undefined
   }, __jsx("img", {
@@ -2136,51 +2229,57 @@ const House = props => __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["de
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 15
     },
     __self: undefined
   }), __jsx("p", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 16
     },
     __self: undefined
   }, props.house.type, "-", props.house.town), __jsx("p", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 19
     },
     __self: undefined
   }, props.house.title), __jsx("p", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 20
     },
     __self: undefined
   }, props.house.rating, " (", props.house.reviewsCount, ")")), __jsx("aside", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 24
     },
     __self: undefined
   }, __jsx("h2", {
     className: "jsx-231133359",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 25
     },
     __self: undefined
-  }, "Add dates for prices")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+  }, "Add dates for prices"), __jsx(_components_DateRangePicker__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: undefined
+  })), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
     id: "231133359",
     __self: undefined
-  }, ".container.jsx-231133359{display:grid;grid-template-columns:60% 40%;grid-gap:30px;}aside.jsx-231133359{border:1px solid #ccc;padding:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvcGFnZXMvaG91c2VzL1tpZF0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBMEJNLEFBR21CLEFBS1MsYUFKUSxTQUtqQixhQUNiLFFBTGMsY0FDZCIsImZpbGUiOiIvVXNlcnMvYWRtaW4vTGFtYmRhIENvdXJzZXdvcmsvbmV4dGpzYm5iL3BhZ2VzL2hvdXNlcy9baWRdLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGhvdXNlcyBmcm9tICcuLi9ob3VzZXMuanNvbic7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnXG5pbXBvcnQgTGF5b3V0IGZyb20gJy4uLy4uL2NvbXBvbmVudHMvTGF5b3V0J1xuXG5cbmNvbnN0IEhvdXNlID0gcHJvcHMgPT4gKFxuXHQ8TGF5b3V0XG5cdFx0Y29udGVudD17XG5cdFx0XHQ8ZGl2IGNsYXNzTmFtZT0nY29udGFpbmVyJz5cblx0XHRcdFx0PEhlYWQ+XG5cdFx0XHRcdFx0PHRpdGxlPntwcm9wcy5ob3VzZS50aXRsZX08L3RpdGxlPlxuXHRcdFx0XHQ8L0hlYWQ+XG5cdFx0XHRcdDxhcnRpY2xlPlxuXHRcdFx0XHRcdDxpbWcgc3JjPXtwcm9wcy5ob3VzZS5waWN0dXJlfSB3aWR0aD0nMTAwJScgYWx0PSdIb3VzZSBwaWN0dXJlJyAvPlxuXHRcdFx0XHRcdDxwPlxuXHRcdFx0XHRcdFx0e3Byb3BzLmhvdXNlLnR5cGV9LXtwcm9wcy5ob3VzZS50b3dufVxuXHRcdFx0XHRcdDwvcD5cblx0XHRcdFx0XHQ8cD57cHJvcHMuaG91c2UudGl0bGV9PC9wPlxuXHRcdFx0XHRcdDxwPlxuXHRcdFx0XHRcdFx0e3Byb3BzLmhvdXNlLnJhdGluZ30gKHtwcm9wcy5ob3VzZS5yZXZpZXdzQ291bnR9KVxuXHRcdFx0XHRcdDwvcD5cblx0XHRcdFx0PC9hcnRpY2xlPlxuXHRcdFx0XHQ8YXNpZGU+XG5cdFx0XHRcdFx0PGgyPkFkZCBkYXRlcyBmb3IgcHJpY2VzPC9oMj5cblx0XHRcdFx0PC9hc2lkZT5cblx0XHRcdFx0PHN0eWxlIGpzeD5cblx0XHRcdFx0XHR7YFxuXHRcdFx0XHRcdC5jb250YWluZXJ7XG5cdFx0XHRcdFx0XHRkaXNwbGF5OmdyaWQ7XG5cdFx0XHRcdFx0XHRncmlkLXRlbXBsYXRlLWNvbHVtbnM6NjAlIDQwJTtcblx0XHRcdFx0XHRcdGdyaWQtZ2FwOjMwcHg7XG5cdFx0XHRcdFx0fVxuXHRcdFx0XHRcdGFzaWRle1xuXHRcdFx0XHRcdFx0Ym9yZGVyOjFweCBzb2xpZCAjY2NjO1xuXHRcdFx0XHRcdFx0cGFkZGluZzoyMHB4O1xuXHRcdFx0XHRcdH1gfVxuXHRcdFx0XHQ8L3N0eWxlPlxuXHRcdFx0PC9kaXY+XG5cdFx0fVxuXHQvPlxuXG4pXG5cbkhvdXNlLmdldEluaXRpYWxQcm9wcyA9ICh7IHF1ZXJ5IH0pID0+IHtcblxuXHRjb25zb2xlLmxvZyhxdWVyeSk7XG5cblx0Y29uc3QgeyBpZCB9ID0gcXVlcnlcblxuXHRyZXR1cm4ge1xuXHRcdGhvdXNlOiBob3VzZXMuZmlsdGVyKGhvdXNlID0+IGhvdXNlLmlkID09PSBpZClbMF1cblx0fVxufTtcblxuZXhwb3J0IGRlZmF1bHQgSG91c2U7XG4iXX0= */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js */")),
+  }, ".container.jsx-231133359{display:grid;grid-template-columns:60% 40%;grid-gap:30px;}aside.jsx-231133359{border:1px solid #ccc;padding:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvcGFnZXMvaG91c2VzL1tpZF0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBNEJNLEFBR21CLEFBS1MsYUFKUSxTQUtqQixhQUNiLFFBTGMsY0FDZCIsImZpbGUiOiIvVXNlcnMvYWRtaW4vTGFtYmRhIENvdXJzZXdvcmsvbmV4dGpzYm5iL3BhZ2VzL2hvdXNlcy9baWRdLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGhvdXNlcyBmcm9tICcuLi9ob3VzZXMuanNvbic7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnXG5pbXBvcnQgTGF5b3V0IGZyb20gJy4uLy4uL2NvbXBvbmVudHMvTGF5b3V0J1xuaW1wb3J0IERhdGVSYW5nZVBpY2tlciBmcm9tICcuLi8uLi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlcidcblxuXG5jb25zdCBIb3VzZSA9IHByb3BzID0+IChcblx0PExheW91dFxuXHRcdGNvbnRlbnQ9e1xuXHRcdFx0PGRpdiBjbGFzc05hbWU9J2NvbnRhaW5lcic+XG5cdFx0XHRcdDxIZWFkPlxuXHRcdFx0XHRcdDx0aXRsZT57cHJvcHMuaG91c2UudGl0bGV9PC90aXRsZT5cblx0XHRcdFx0PC9IZWFkPlxuXHRcdFx0XHQ8YXJ0aWNsZT5cblx0XHRcdFx0XHQ8aW1nIHNyYz17cHJvcHMuaG91c2UucGljdHVyZX0gd2lkdGg9JzEwMCUnIGFsdD0nSG91c2UgcGljdHVyZScgLz5cblx0XHRcdFx0XHQ8cD5cblx0XHRcdFx0XHRcdHtwcm9wcy5ob3VzZS50eXBlfS17cHJvcHMuaG91c2UudG93bn1cblx0XHRcdFx0XHQ8L3A+XG5cdFx0XHRcdFx0PHA+e3Byb3BzLmhvdXNlLnRpdGxlfTwvcD5cblx0XHRcdFx0XHQ8cD5cblx0XHRcdFx0XHRcdHtwcm9wcy5ob3VzZS5yYXRpbmd9ICh7cHJvcHMuaG91c2UucmV2aWV3c0NvdW50fSlcblx0XHRcdFx0XHQ8L3A+XG5cdFx0XHRcdDwvYXJ0aWNsZT5cblx0XHRcdFx0PGFzaWRlPlxuXHRcdFx0XHRcdDxoMj5BZGQgZGF0ZXMgZm9yIHByaWNlczwvaDI+XG5cdFx0XHRcdFx0PERhdGVSYW5nZVBpY2tlciAvPlxuXHRcdFx0XHQ8L2FzaWRlPlxuXHRcdFx0XHQ8c3R5bGUganN4PlxuXHRcdFx0XHRcdHtgXG5cdFx0XHRcdFx0LmNvbnRhaW5lcntcblx0XHRcdFx0XHRcdGRpc3BsYXk6Z3JpZDtcblx0XHRcdFx0XHRcdGdyaWQtdGVtcGxhdGUtY29sdW1uczo2MCUgNDAlO1xuXHRcdFx0XHRcdFx0Z3JpZC1nYXA6MzBweDtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0YXNpZGV7XG5cdFx0XHRcdFx0XHRib3JkZXI6MXB4IHNvbGlkICNjY2M7XG5cdFx0XHRcdFx0XHRwYWRkaW5nOjIwcHg7XG5cdFx0XHRcdFx0fWB9XG5cdFx0XHRcdDwvc3R5bGU+XG5cdFx0XHQ8L2Rpdj5cblx0XHR9XG5cdC8+XG5cbilcblxuSG91c2UuZ2V0SW5pdGlhbFByb3BzID0gKHsgcXVlcnkgfSkgPT4ge1xuXG5cdGNvbnNvbGUubG9nKHF1ZXJ5KTtcblxuXHRjb25zdCB7IGlkIH0gPSBxdWVyeVxuXG5cdHJldHVybiB7XG5cdFx0aG91c2U6IGhvdXNlcy5maWx0ZXIoaG91c2UgPT4gaG91c2UuaWQgPT09IGlkKVswXVxuXHR9XG59O1xuXG5leHBvcnQgZGVmYXVsdCBIb3VzZTtcbiJdfQ== */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js */")),
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 7
+    lineNumber: 8
   },
   __self: undefined
 });
@@ -2364,6 +2463,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-day-picker/DayPickerInput":
+/*!**************************************************!*\
+  !*** external "react-day-picker/DayPickerInput" ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-day-picker/DayPickerInput");
 
 /***/ }),
 
