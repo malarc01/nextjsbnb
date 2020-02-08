@@ -4,7 +4,7 @@ import 'react-day-picker/lib/style.css'
 import { DateUtils } from 'react-day-picker'
 
 
-import dateFnsFormat from 'date-fns/esm/format/index'
+import dateFnsFormat from 'date-fns/format'
 // import { format } from 'date-fns'
 import dateFnsParse from 'date-fns/parse'
 
@@ -37,6 +37,7 @@ export default () => {
                 <DayPickerInput
                     formatDate={formatDate}
                     format={format}
+                    value={startDate}
                     parseDate={parseDate}
                     placeholder={`${dateFnsFormat(new Date(), format)}`}
                     dayPickerProps={{
@@ -56,6 +57,7 @@ export default () => {
                 <DayPickerInput
                     formatDate={formatDate}
                     format={format}
+                    value={endDate}
                     parseDate={parseDate}
                     placeholder={`${dateFnsFormat(new Date(), format)}`}
                     dayPickerProps={{
