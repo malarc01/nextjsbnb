@@ -10091,67 +10091,107 @@ module.exports = JSON.parse("[{\"id\":\"2329\",\"hostName\":\"Anna\",\"picture\"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _houses_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../houses.json */ "./pages/houses.json");
-var _houses_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../houses.json */ "./pages/houses.json", 1);
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/Layout */ "./components/Layout.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "./node_modules/styled-jsx/style.js");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _houses_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../houses.json */ "./pages/houses.json");
+var _houses_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../houses.json */ "./pages/houses.json", 1);
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/head */ "./node_modules/next/dist/next-server/lib/head.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/Layout */ "./components/Layout.js");
 var _jsxFileName = "/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
 
 var House = function House(props) {
-  return __jsx("div", {
+  return __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    content: __jsx("div", {
+      className: "jsx-231133359" + " " + 'container',
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      },
+      __self: this
+    }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      },
+      __self: this
+    }, __jsx("title", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 11
+      },
+      __self: this
+    }, props.house.title)), __jsx("article", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      },
+      __self: this
+    }, __jsx("img", {
+      src: props.house.picture,
+      width: "100%",
+      alt: "House picture",
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 14
+      },
+      __self: this
+    }), __jsx("p", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }, props.house.type, "-", props.house.town), __jsx("p", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 18
+      },
+      __self: this
+    }, props.house.title), __jsx("p", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 19
+      },
+      __self: this
+    }, props.house.rating, " (", props.house.reviewsCount, ")")), __jsx("aside", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }, __jsx("h2", {
+      className: "jsx-231133359",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
+      },
+      __self: this
+    }, "Add dates for prices")), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      id: "231133359",
+      __self: this
+    }, ".container.jsx-231133359{display:grid;grid-template-columns:60% 40%;grid-gap:30px;}aside.jsx-231133359{border:1px solid #ccc;padding:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvcGFnZXMvaG91c2VzL1tpZF0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBMEJNLEFBR21CLEFBS1MsYUFKUSxTQUtqQixhQUNiLFFBTGMsY0FDZCIsImZpbGUiOiIvVXNlcnMvYWRtaW4vTGFtYmRhIENvdXJzZXdvcmsvbmV4dGpzYm5iL3BhZ2VzL2hvdXNlcy9baWRdLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IGhvdXNlcyBmcm9tICcuLi9ob3VzZXMuanNvbic7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnXG5pbXBvcnQgTGF5b3V0IGZyb20gJy4uLy4uL2NvbXBvbmVudHMvTGF5b3V0J1xuXG5cbmNvbnN0IEhvdXNlID0gcHJvcHMgPT4gKFxuXHQ8TGF5b3V0XG5cdFx0Y29udGVudD17XG5cdFx0XHQ8ZGl2IGNsYXNzTmFtZT0nY29udGFpbmVyJz5cblx0XHRcdFx0PEhlYWQ+XG5cdFx0XHRcdFx0PHRpdGxlPntwcm9wcy5ob3VzZS50aXRsZX08L3RpdGxlPlxuXHRcdFx0XHQ8L0hlYWQ+XG5cdFx0XHRcdDxhcnRpY2xlPlxuXHRcdFx0XHRcdDxpbWcgc3JjPXtwcm9wcy5ob3VzZS5waWN0dXJlfSB3aWR0aD0nMTAwJScgYWx0PSdIb3VzZSBwaWN0dXJlJyAvPlxuXHRcdFx0XHRcdDxwPlxuXHRcdFx0XHRcdFx0e3Byb3BzLmhvdXNlLnR5cGV9LXtwcm9wcy5ob3VzZS50b3dufVxuXHRcdFx0XHRcdDwvcD5cblx0XHRcdFx0XHQ8cD57cHJvcHMuaG91c2UudGl0bGV9PC9wPlxuXHRcdFx0XHRcdDxwPlxuXHRcdFx0XHRcdFx0e3Byb3BzLmhvdXNlLnJhdGluZ30gKHtwcm9wcy5ob3VzZS5yZXZpZXdzQ291bnR9KVxuXHRcdFx0XHRcdDwvcD5cblx0XHRcdFx0PC9hcnRpY2xlPlxuXHRcdFx0XHQ8YXNpZGU+XG5cdFx0XHRcdFx0PGgyPkFkZCBkYXRlcyBmb3IgcHJpY2VzPC9oMj5cblx0XHRcdFx0PC9hc2lkZT5cblx0XHRcdFx0PHN0eWxlIGpzeD5cblx0XHRcdFx0XHR7YFxuXHRcdFx0XHRcdC5jb250YWluZXJ7XG5cdFx0XHRcdFx0XHRkaXNwbGF5OmdyaWQ7XG5cdFx0XHRcdFx0XHRncmlkLXRlbXBsYXRlLWNvbHVtbnM6NjAlIDQwJTtcblx0XHRcdFx0XHRcdGdyaWQtZ2FwOjMwcHg7XG5cdFx0XHRcdFx0fVxuXHRcdFx0XHRcdGFzaWRle1xuXHRcdFx0XHRcdFx0Ym9yZGVyOjFweCBzb2xpZCAjY2NjO1xuXHRcdFx0XHRcdFx0cGFkZGluZzoyMHB4O1xuXHRcdFx0XHRcdH1gfVxuXHRcdFx0XHQ8L3N0eWxlPlxuXHRcdFx0PC9kaXY+XG5cdFx0fVxuXHQvPlxuXG4pXG5cbkhvdXNlLmdldEluaXRpYWxQcm9wcyA9ICh7IHF1ZXJ5IH0pID0+IHtcblxuXHRjb25zb2xlLmxvZyhxdWVyeSk7XG5cblx0Y29uc3QgeyBpZCB9ID0gcXVlcnlcblxuXHRyZXR1cm4ge1xuXHRcdGhvdXNlOiBob3VzZXMuZmlsdGVyKGhvdXNlID0+IGhvdXNlLmlkID09PSBpZClbMF1cblx0fVxufTtcblxuZXhwb3J0IGRlZmF1bHQgSG91c2U7XG4iXX0= */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js */")),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 7
     },
     __self: this
-  }, __jsx(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }, __jsx("title", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
-  }, props.house.title)), __jsx("img", {
-    src: props.house.picture,
-    width: "100%",
-    alt: "House picture",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: this
-  }), __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12
-    },
-    __self: this
-  }, props.house.type, "-", props.house.town), __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: this
-  }, props.house.title), __jsx("p", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: this
-  }, props.house.rating, " (", props.house.reviewsCount, ")"));
+  });
 };
 
 House.getInitialProps = function (_ref) {
@@ -10159,7 +10199,7 @@ House.getInitialProps = function (_ref) {
   console.log(query);
   var id = query.id;
   return {
-    house: _houses_json__WEBPACK_IMPORTED_MODULE_1__.filter(function (house) {
+    house: _houses_json__WEBPACK_IMPORTED_MODULE_2__.filter(function (house) {
       return house.id === id;
     })[0]
   };
