@@ -18628,7 +18628,7 @@ House.getInitialProps = function (_ref) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*******************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fhouses%2F%5Bid%5D&absolutePagePath=%2FUsers%2Fadmin%2FLambda%20Coursework%2Fnextjsbnb%2Fpages%2Fhouses%2F%5Bid%5D.js ***!
   \*******************************************************************************************************************************************************************/
@@ -18651,5 +18651,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[id].js.map
