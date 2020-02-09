@@ -18,15 +18,24 @@ const formatDate = (date, format, locale) => {
     dateFnsFormat(date, format, { locale })
 }
 
-const format = 'dd MMM yyyy'
+const format = 'MMM dd  yyyy'
 
 const today = new Date()
+console.log(today)
+
 const tomorrow = new Date(today)
+console.log(tomorrow)
+
 tomorrow.setDate(tomorrow.getDate() + 1)
+console.log('tomorrow=>', tomorrow)
+
+
 
 const numberOfNightsBetweenDates = (startDate, endDate) => {
     const start = new Date(startDate) //clone
+    console.log(start) //clone
     const end = new Date(endDate) // clone
+    console.log(end) //clone
 
     let dayCount = 0
 
@@ -40,9 +49,15 @@ const numberOfNightsBetweenDates = (startDate, endDate) => {
 
 
 
-export default () => {
+export default ({ datesChanged }) => {
+
+
     const [startDate, setStartDate] = useState(today)
+
     const [endDate, setEndDate] = useState(tomorrow)
+
+
+
 
     return (
         <div className='date-range-picker-container'>
@@ -61,13 +76,17 @@ export default () => {
                             }
                         }
                     }}
-                    onChange={day => {
+                    onDayChange={day => {
                         setStartDate(day)
+
+                        const newEndDate = new Date(day)
+
                         if (numberOfNightsBetweenDates(day, endDate) < 1) {
-                            const newEndDate = new Date(day)
+
                             newEndDate.setDate(newEndDate.getDate() + 1)
                             setEndDate(newEndDate)
                         }
+                        datesChanged(day, newEndDate)
                     }}
                 />
             </div>
@@ -89,8 +108,9 @@ export default () => {
                             ]
                         }
                     }}
-                    onChange={day => {
+                    onDayChange={day => {
                         setEndDate(day)
+                        datesChanged(startDate, day)
                     }}
                 />
             </div>

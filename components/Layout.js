@@ -1,6 +1,7 @@
 import Header from './Header'
 
 const Layout = props => {
+    console.log(props)
     return (
         <div>
             <Header />
