@@ -2325,7 +2325,7 @@ const House = props => {
   } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(0);
   return __jsx(_components_Layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     content: __jsx("div", {
-      className: "jsx-231133359" + " " + 'container',
+      className: "jsx-3130926085" + " " + 'container',
       __source: {
         fileName: _jsxFileName,
         lineNumber: 34
@@ -2338,14 +2338,14 @@ const House = props => {
       },
       __self: undefined
     }, __jsx("title", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 36
       },
       __self: undefined
     }, props.house.title)), __jsx("article", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 38
@@ -2355,42 +2355,42 @@ const House = props => {
       src: props.house.picture,
       width: "100%",
       alt: "House picture",
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 39
       },
       __self: undefined
     }), __jsx("p", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 40
       },
       __self: undefined
     }, props.house.type, "-", props.house.town), __jsx("p", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 43
       },
       __self: undefined
     }, props.house.title), __jsx("p", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 44
       },
       __self: undefined
     }, props.house.rating, " (", props.house.reviewsCount, ")")), __jsx("aside", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 48
       },
       __self: undefined
     }, __jsx("h2", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 49
@@ -2409,51 +2409,51 @@ const House = props => {
       },
       __self: undefined
     }), dateChosen && __jsx("div", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 61
       },
       __self: undefined
     }, __jsx("h2", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 62
       },
       __self: undefined
     }, "Price per night "), __jsx("p", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 63
       },
       __self: undefined
     }, "$", props.house.price), __jsx("h2", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 64
       },
       __self: undefined
     }, "Total price for booking "), __jsx("p", {
-      className: "jsx-231133359",
+      className: "jsx-3130926085",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 65
       },
       __self: undefined
     }, "$", (numberOfNightsBetweenDates * props.house.price).toFixed(2)), __jsx("button", {
-      className: "jsx-231133359" + " " + "reserve",
+      className: "jsx-3130926085" + " " + "reserve",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 68
       },
       __self: undefined
-    }, "RESERVE \uD83D\uDD4C"))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
-      id: "231133359",
+    }, "Reserve \uD83D\uDD4C"))), __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      id: "3130926085",
       __self: undefined
-    }, ".container.jsx-231133359{display:grid;grid-template-columns:60% 40%;grid-gap:30px;}aside.jsx-231133359{border:1px solid #ccc;padding:20px;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvcGFnZXMvaG91c2VzL1tpZF0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0VPLEFBR21CLEFBS1MsYUFKUSxTQUtqQixhQUNiLFFBTGMsY0FDZCIsImZpbGUiOiIvVXNlcnMvYWRtaW4vTGFtYmRhIENvdXJzZXdvcmsvbmV4dGpzYm5iL3BhZ2VzL2hvdXNlcy9baWRdLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlU3RhdGUgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnXG5pbXBvcnQgTGF5b3V0IGZyb20gJy4uLy4uL2NvbXBvbmVudHMvTGF5b3V0J1xuaW1wb3J0IERhdGVSYW5nZVBpY2tlciBmcm9tICcuLi8uLi9jb21wb25lbnRzL0RhdGVSYW5nZVBpY2tlcidcblxuaW1wb3J0IGhvdXNlcyBmcm9tICcuLi9ob3VzZXMuanNvbic7XG5cbmNvbnN0IGNhbGNOdW1iZXJPZk5pZ2h0c0JldHdlZW5EYXRlcyA9IChzdGFydERhdGUsIGVuZERhdGUpID0+IHtcblx0Y29uc3Qgc3RhcnQgPSBuZXcgRGF0ZShzdGFydERhdGUpIC8vY2xvbmVcblx0Y29uc3QgZW5kID0gbmV3IERhdGUoZW5kRGF0ZSkgLy9jbG9uZVxuXHRsZXQgZGF5Q291bnQgPSAwXG5cblx0d2hpbGUgKGVuZCA+IHN0YXJ0KSB7XG5cdFx0ZGF5Q291bnQrK1xuXHRcdHN0YXJ0LnNldERhdGUoc3RhcnQuZ2V0RGF0ZSgpICsgMSlcblx0fVxuXG5cdHJldHVybiBkYXlDb3VudFxuXG59XG5cblxuY29uc3QgSG91c2UgPSBwcm9wcyA9PiB7XG5cblx0Y29uc3QgW2RhdGVDaG9zZW4sIHNldERhdGVDaG9zZW5dID0gdXNlU3RhdGUoZmFsc2UpXG5cblx0Y29uc3QgW251bWJlck9mTmlnaHRzQmV0d2VlbkRhdGVzLCBzZXROdW1iZXJPZk5pZ2h0c0JldHdlZW5EYXRlc10gPSB1c2VTdGF0ZSgwKVxuXG5cblxuXHRyZXR1cm4gKFxuXHRcdDxMYXlvdXRcblx0XHRcdGNvbnRlbnQ9e1xuXHRcdFx0XHQ8ZGl2IGNsYXNzTmFtZT0nY29udGFpbmVyJz5cblx0XHRcdFx0XHQ8SGVhZD5cblx0XHRcdFx0XHRcdDx0aXRsZT57cHJvcHMuaG91c2UudGl0bGV9PC90aXRsZT5cblx0XHRcdFx0XHQ8L0hlYWQ+XG5cdFx0XHRcdFx0PGFydGljbGU+XG5cdFx0XHRcdFx0XHQ8aW1nIHNyYz17cHJvcHMuaG91c2UucGljdHVyZX0gd2lkdGg9JzEwMCUnIGFsdD0nSG91c2UgcGljdHVyZScgLz5cblx0XHRcdFx0XHRcdDxwPlxuXHRcdFx0XHRcdFx0XHR7cHJvcHMuaG91c2UudHlwZX0te3Byb3BzLmhvdXNlLnRvd259XG5cdFx0XHRcdFx0XHQ8L3A+XG5cdFx0XHRcdFx0XHQ8cD57cHJvcHMuaG91c2UudGl0bGV9PC9wPlxuXHRcdFx0XHRcdFx0PHA+XG5cdFx0XHRcdFx0XHRcdHtwcm9wcy5ob3VzZS5yYXRpbmd9ICh7cHJvcHMuaG91c2UucmV2aWV3c0NvdW50fSlcblx0XHRcdFx0XHQ8L3A+XG5cdFx0XHRcdFx0PC9hcnRpY2xlPlxuXHRcdFx0XHRcdDxhc2lkZT5cblx0XHRcdFx0XHRcdDxoMj5BZGQgZGF0ZXMgZm9yIHByaWNlczwvaDI+XG5cdFx0XHRcdFx0XHQ8RGF0ZVJhbmdlUGlja2VyIGRhdGVzQ2hhbmdlZD17KHN0YXJ0RGF0ZSwgZW5kRGF0ZSkgPT4ge1xuXG5cdFx0XHRcdFx0XHRcdGNvbnNvbGUubG9nKCdMZSBzdGFydCBkaWEgPT4nLCBzdGFydERhdGUpXG5cblx0XHRcdFx0XHRcdFx0Y29uc29sZS5sb2coJ0xlIGZpbiBkaWEgPT4nLCBlbmREYXRlKVxuXG5cdFx0XHRcdFx0XHRcdHNldE51bWJlck9mTmlnaHRzQmV0d2VlbkRhdGVzKFxuXHRcdFx0XHRcdFx0XHRcdGNhbGNOdW1iZXJPZk5pZ2h0c0JldHdlZW5EYXRlcyhzdGFydERhdGUsIGVuZERhdGUpKVxuXHRcdFx0XHRcdFx0XHRzZXREYXRlQ2hvc2VuKHRydWUpXG5cdFx0XHRcdFx0XHR9fSAvPlxuXHRcdFx0XHRcdFx0e2RhdGVDaG9zZW4gJiYgKFxuXHRcdFx0XHRcdFx0XHQ8ZGl2PlxuXHRcdFx0XHRcdFx0XHRcdDxoMj5QcmljZSBwZXIgbmlnaHQgPC9oMj5cblx0XHRcdFx0XHRcdFx0XHQ8cD4ke3Byb3BzLmhvdXNlLnByaWNlfTwvcD5cblx0XHRcdFx0XHRcdFx0XHQ8aDI+VG90YWwgcHJpY2UgZm9yIGJvb2tpbmcgPC9oMj5cblx0XHRcdFx0XHRcdFx0XHQ8cD5cblx0XHRcdFx0XHRcdFx0XHRcdCR7KG51bWJlck9mTmlnaHRzQmV0d2VlbkRhdGVzICogcHJvcHMuaG91c2UucHJpY2UpLnRvRml4ZWQoMil9XG5cdFx0XHRcdFx0XHRcdFx0PC9wPlxuXHRcdFx0XHRcdFx0XHRcdDxidXR0b24gY2xhc3NOYW1lPVwicmVzZXJ2ZVwiPlJFU0VSVkUg8J+VjDwvYnV0dG9uPlxuXHRcdFx0XHRcdFx0XHQ8L2Rpdj5cblx0XHRcdFx0XHRcdCl9XG5cdFx0XHRcdFx0PC9hc2lkZT5cblx0XHRcdFx0XHQ8c3R5bGUganN4PlxuXHRcdFx0XHRcdFx0e2Bcblx0XHRcdFx0XHQuY29udGFpbmVye1xuXHRcdFx0XHRcdFx0ZGlzcGxheTpncmlkO1xuXHRcdFx0XHRcdFx0Z3JpZC10ZW1wbGF0ZS1jb2x1bW5zOjYwJSA0MCU7XG5cdFx0XHRcdFx0XHRncmlkLWdhcDozMHB4O1xuXHRcdFx0XHRcdH1cblx0XHRcdFx0XHRhc2lkZXtcblx0XHRcdFx0XHRcdGJvcmRlcjoxcHggc29saWQgI2NjYztcblx0XHRcdFx0XHRcdHBhZGRpbmc6MjBweDtcblx0XHRcdFx0XHR9YH1cblx0XHRcdFx0XHQ8L3N0eWxlPlxuXHRcdFx0XHQ8L2Rpdj5cblx0XHRcdH1cblx0XHQvPlxuXG5cdClcbn1cbkhvdXNlLmdldEluaXRpYWxQcm9wcyA9ICh7IHF1ZXJ5IH0pID0+IHtcblxuXHRjb25zb2xlLmxvZyhxdWVyeSk7XG5cblx0Y29uc3QgeyBpZCB9ID0gcXVlcnlcblxuXHRyZXR1cm4ge1xuXHRcdGhvdXNlOiBob3VzZXMuZmlsdGVyKGhvdXNlID0+IGhvdXNlLmlkID09PSBpZClbMF1cblx0fVxufTtcblxuZXhwb3J0IGRlZmF1bHQgSG91c2U7XG4iXX0= */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js */")),
+    }, ".container.jsx-3130926085{display:grid;grid-template-columns:60% 40%;grid-gap:30px;}aside.jsx-3130926085{border:1px solid #ccc;padding:20px;}button.jsx-3130926085{background-color:rgb(255,90,95);color:white;font-size:13px;width:100%;border:none;height:40px;border-radius:4px;cursor:pointer;}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hZG1pbi9MYW1iZGEgQ291cnNld29yay9uZXh0anNibmIvcGFnZXMvaG91c2VzL1tpZF0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBd0VPLEFBR21CLEFBS1MsQUFJVSxhQVJGLFNBS2pCLFVBSUQsR0FIWixRQUxjLENBU0MsYUFSZixFQVNXLFdBQ0MsWUFDQSxZQUNNLGtCQUNILGVBQ2YiLCJmaWxlIjoiL1VzZXJzL2FkbWluL0xhbWJkYSBDb3Vyc2V3b3JrL25leHRqc2JuYi9wYWdlcy9ob3VzZXMvW2lkXS5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xuaW1wb3J0IEhlYWQgZnJvbSAnbmV4dC9oZWFkJ1xuaW1wb3J0IExheW91dCBmcm9tICcuLi8uLi9jb21wb25lbnRzL0xheW91dCdcbmltcG9ydCBEYXRlUmFuZ2VQaWNrZXIgZnJvbSAnLi4vLi4vY29tcG9uZW50cy9EYXRlUmFuZ2VQaWNrZXInXG5cbmltcG9ydCBob3VzZXMgZnJvbSAnLi4vaG91c2VzLmpzb24nO1xuXG5jb25zdCBjYWxjTnVtYmVyT2ZOaWdodHNCZXR3ZWVuRGF0ZXMgPSAoc3RhcnREYXRlLCBlbmREYXRlKSA9PiB7XG5cdGNvbnN0IHN0YXJ0ID0gbmV3IERhdGUoc3RhcnREYXRlKSAvL2Nsb25lXG5cdGNvbnN0IGVuZCA9IG5ldyBEYXRlKGVuZERhdGUpIC8vY2xvbmVcblx0bGV0IGRheUNvdW50ID0gMFxuXG5cdHdoaWxlIChlbmQgPiBzdGFydCkge1xuXHRcdGRheUNvdW50Kytcblx0XHRzdGFydC5zZXREYXRlKHN0YXJ0LmdldERhdGUoKSArIDEpXG5cdH1cblxuXHRyZXR1cm4gZGF5Q291bnRcblxufVxuXG5cbmNvbnN0IEhvdXNlID0gcHJvcHMgPT4ge1xuXG5cdGNvbnN0IFtkYXRlQ2hvc2VuLCBzZXREYXRlQ2hvc2VuXSA9IHVzZVN0YXRlKGZhbHNlKVxuXG5cdGNvbnN0IFtudW1iZXJPZk5pZ2h0c0JldHdlZW5EYXRlcywgc2V0TnVtYmVyT2ZOaWdodHNCZXR3ZWVuRGF0ZXNdID0gdXNlU3RhdGUoMClcblxuXG5cblx0cmV0dXJuIChcblx0XHQ8TGF5b3V0XG5cdFx0XHRjb250ZW50PXtcblx0XHRcdFx0PGRpdiBjbGFzc05hbWU9J2NvbnRhaW5lcic+XG5cdFx0XHRcdFx0PEhlYWQ+XG5cdFx0XHRcdFx0XHQ8dGl0bGU+e3Byb3BzLmhvdXNlLnRpdGxlfTwvdGl0bGU+XG5cdFx0XHRcdFx0PC9IZWFkPlxuXHRcdFx0XHRcdDxhcnRpY2xlPlxuXHRcdFx0XHRcdFx0PGltZyBzcmM9e3Byb3BzLmhvdXNlLnBpY3R1cmV9IHdpZHRoPScxMDAlJyBhbHQ9J0hvdXNlIHBpY3R1cmUnIC8+XG5cdFx0XHRcdFx0XHQ8cD5cblx0XHRcdFx0XHRcdFx0e3Byb3BzLmhvdXNlLnR5cGV9LXtwcm9wcy5ob3VzZS50b3dufVxuXHRcdFx0XHRcdFx0PC9wPlxuXHRcdFx0XHRcdFx0PHA+e3Byb3BzLmhvdXNlLnRpdGxlfTwvcD5cblx0XHRcdFx0XHRcdDxwPlxuXHRcdFx0XHRcdFx0XHR7cHJvcHMuaG91c2UucmF0aW5nfSAoe3Byb3BzLmhvdXNlLnJldmlld3NDb3VudH0pXG5cdFx0XHRcdFx0PC9wPlxuXHRcdFx0XHRcdDwvYXJ0aWNsZT5cblx0XHRcdFx0XHQ8YXNpZGU+XG5cdFx0XHRcdFx0XHQ8aDI+QWRkIGRhdGVzIGZvciBwcmljZXM8L2gyPlxuXHRcdFx0XHRcdFx0PERhdGVSYW5nZVBpY2tlciBkYXRlc0NoYW5nZWQ9eyhzdGFydERhdGUsIGVuZERhdGUpID0+IHtcblxuXHRcdFx0XHRcdFx0XHRjb25zb2xlLmxvZygnTGUgc3RhcnQgZGlhID0+Jywgc3RhcnREYXRlKVxuXG5cdFx0XHRcdFx0XHRcdGNvbnNvbGUubG9nKCdMZSBmaW4gZGlhID0+JywgZW5kRGF0ZSlcblxuXHRcdFx0XHRcdFx0XHRzZXROdW1iZXJPZk5pZ2h0c0JldHdlZW5EYXRlcyhcblx0XHRcdFx0XHRcdFx0XHRjYWxjTnVtYmVyT2ZOaWdodHNCZXR3ZWVuRGF0ZXMoc3RhcnREYXRlLCBlbmREYXRlKSlcblx0XHRcdFx0XHRcdFx0c2V0RGF0ZUNob3Nlbih0cnVlKVxuXHRcdFx0XHRcdFx0fX0gLz5cblx0XHRcdFx0XHRcdHtkYXRlQ2hvc2VuICYmIChcblx0XHRcdFx0XHRcdFx0PGRpdj5cblx0XHRcdFx0XHRcdFx0XHQ8aDI+UHJpY2UgcGVyIG5pZ2h0IDwvaDI+XG5cdFx0XHRcdFx0XHRcdFx0PHA+JHtwcm9wcy5ob3VzZS5wcmljZX08L3A+XG5cdFx0XHRcdFx0XHRcdFx0PGgyPlRvdGFsIHByaWNlIGZvciBib29raW5nIDwvaDI+XG5cdFx0XHRcdFx0XHRcdFx0PHA+XG5cdFx0XHRcdFx0XHRcdFx0XHQkeyhudW1iZXJPZk5pZ2h0c0JldHdlZW5EYXRlcyAqIHByb3BzLmhvdXNlLnByaWNlKS50b0ZpeGVkKDIpfVxuXHRcdFx0XHRcdFx0XHRcdDwvcD5cblx0XHRcdFx0XHRcdFx0XHQ8YnV0dG9uIGNsYXNzTmFtZT1cInJlc2VydmVcIj5SZXNlcnZlIPCflYw8L2J1dHRvbj5cblx0XHRcdFx0XHRcdFx0PC9kaXY+XG5cdFx0XHRcdFx0XHQpfVxuXHRcdFx0XHRcdDwvYXNpZGU+XG5cdFx0XHRcdFx0PHN0eWxlIGpzeD5cblx0XHRcdFx0XHRcdHtgXG5cdFx0XHRcdFx0LmNvbnRhaW5lcntcblx0XHRcdFx0XHRcdGRpc3BsYXk6Z3JpZDtcblx0XHRcdFx0XHRcdGdyaWQtdGVtcGxhdGUtY29sdW1uczo2MCUgNDAlO1xuXHRcdFx0XHRcdFx0Z3JpZC1nYXA6MzBweDtcblx0XHRcdFx0XHR9XG5cdFx0XHRcdFx0YXNpZGV7XG5cdFx0XHRcdFx0XHRib3JkZXI6MXB4IHNvbGlkICNjY2M7XG5cdFx0XHRcdFx0XHRwYWRkaW5nOjIwcHg7XG5cdFx0XHRcdFx0fVxuXHRcdFx0XHRcdGJ1dHRvbntcblx0XHRcdFx0XHRcdGJhY2tncm91bmQtY29sb3I6cmdiKDI1NSw5MCw5NSk7XG5cdFx0XHRcdFx0XHRjb2xvcjp3aGl0ZTtcblx0XHRcdFx0XHRcdGZvbnQtc2l6ZToxM3B4O1xuXHRcdFx0XHRcdFx0d2lkdGg6MTAwJTtcblx0XHRcdFx0XHRcdGJvcmRlcjpub25lO1xuXHRcdFx0XHRcdFx0aGVpZ2h0OjQwcHg7XG5cdFx0XHRcdFx0XHRib3JkZXItcmFkaXVzOjRweDtcblx0XHRcdFx0XHRcdGN1cnNvcjpwb2ludGVyO1xuXHRcdFx0XHRcdH1gfVxuXHRcdFx0XHRcdDwvc3R5bGU+XG5cdFx0XHRcdDwvZGl2PlxuXHRcdFx0fVxuXHRcdC8+XG5cblx0KVxufVxuSG91c2UuZ2V0SW5pdGlhbFByb3BzID0gKHsgcXVlcnkgfSkgPT4ge1xuXG5cdGNvbnNvbGUubG9nKHF1ZXJ5KTtcblxuXHRjb25zdCB7IGlkIH0gPSBxdWVyeVxuXG5cdHJldHVybiB7XG5cdFx0aG91c2U6IGhvdXNlcy5maWx0ZXIoaG91c2UgPT4gaG91c2UuaWQgPT09IGlkKVswXVxuXHR9XG59O1xuXG5leHBvcnQgZGVmYXVsdCBIb3VzZTtcbiJdfQ== */\n/*@ sourceURL=/Users/admin/Lambda Coursework/nextjsbnb/pages/houses/[id].js */")),
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32
