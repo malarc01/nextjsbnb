@@ -12,6 +12,32 @@ const sessionStore = new SequelizeStore({
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
+passport.use(new LocalStrategy({
+    usernameField:'email',
+    passwordField:'password'
+},async function (email,password,done){
+    if(!email||!password){
+        done('Email and password required',null)
+        return
+    }
+    const user = await User.findOne({where:{email:email}})
+
+    if(!user){
+        done('User not found',null)
+        return
+    }
+    
+    const valid = await user.isPasswordValid(password)
+
+    if (!valid){
+        done('Email and password ',null)
+        return
+    }
+    
+    done(null, user)
+}))
+
+
 
 
 
