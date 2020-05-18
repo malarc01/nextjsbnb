@@ -9,9 +9,23 @@ const sequelize = require('./model').sequelize
 const sessionStore = new SequelizeStore({
     db:sequelize
 })
+
+//passport
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
+
+//Passport Serialization
+passport.serializeUser((user,done)=>{
+    done(null,user.email)
+})
+
+passport.deserializeUser((email,done)=>{
+    User.findOne({where:{email:email}}).then(user=>{
+        done(null,user)
+    })
+})
+//passport LocalStrategy
 passport.use(new LocalStrategy({
     usernameField:'email',
     passwordField:'password'
@@ -37,10 +51,6 @@ passport.use(new LocalStrategy({
     done(null, user)
 }))
 
-
-
-
-
 sessionStore.sync()
 
 const port = parseInt(process.env.PORT,10) ||3000
@@ -61,7 +71,9 @@ nextApp.prepare().then(()=>{
                 maxAge:30*24*60*60*1000 //converts to 30 days
             },
             store: sessionStore
-        },)
+        }),
+        passport.initialize(),
+        passport.session()
     )
 
     server.all('*',(req,res)=>{
