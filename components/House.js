@@ -1,27 +1,22 @@
-import Link from 'next/link'
-
-
+import Link from 'next/link';
 
 const House = (props) => {
-    console.log(props)
-    return (
-        <Link href='/houses/[id]' as={'/houses/' + props.id}>
-            <a>
-                <img src={props.picture} width="100%" alt="house picture" />
+	console.log('House props=>', props);
+	return (
+		<Link href='/houses/[id]' as={'/houses/' + props.id}>
+			<a>
+				<img src={props.picture} width='100%' alt='house picture' />
 
-                <p>
-                    {props.type}-{props.town}
+				<p>
+					{props.type}-{props.town}
+				</p>
+				<p>{props.title}</p>
+				<p>
+					{props.rating} ({props.reviewsCount})
+				</p>
+			</a>
+		</Link>
+	);
+};
 
-                </p>
-                <p>{props.title}</p>
-                <p>{props.rating} ({props.reviewsCount})</p>
-            </a>
-        </Link>
-
-    )
-
-}
-
-
-
-export default House
+export default House;
