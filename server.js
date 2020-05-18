@@ -2,6 +2,20 @@ const express = require('express')
 const next = require('next')
 const session = require('express-session')
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const User = require('./model').User
+const sequelize = require('./model').sequelize
+
+const sessionStore = new SequelizeStore({
+    db:sequelize
+})
+const passport = require('passport')
+const LocalStrategy = require('passport-local').Strategy
+
+
+
+
+sessionStore.sync()
 
 const port = parseInt(process.env.PORT,10) ||3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -18,8 +32,10 @@ nextApp.prepare().then(()=>{
             name:'nextbnb',
             cookie: {
                 secure: false, // only for DEV ENVIRONMENT 
-                maxAge:30*24*60*60*1000 }//converts to 30 days }
-        })
+                maxAge:30*24*60*60*1000 //converts to 30 days
+            },
+            store: sessionStore
+        },)
     )
 
     server.all('*',(req,res)=>{
