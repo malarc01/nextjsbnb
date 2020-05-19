@@ -20,11 +20,30 @@ export default (props) => {
     <div>
     <form
         onSubmit={async event => {
-            const response = await axios.post('/api/auth/register',{
+
+            try {
+                const response = await axios.post('auth/register',{
+                    email,
+                    password,
+                    passwordconfirmation
+                })
+                if (response.data.status==='error'){
+                    alert(response.data.message)
+                    return
+                }
+                
+            } catch (error) {
+                alert(error.response.data.message)
+                return
+            }
+
+
+
+            {/* const response = await axios.post('/api/auth/register',{
                 email,
                 password,
                 passwordconfirmation
-            })
+            }) */}
         console.log("onSubmit-response=>",response)
         event.preventDefault()
         {/* const submit = async () => {
