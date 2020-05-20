@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import axios from 'axios'
+import { useStoreActions } from 'easy-peasy'
 
 
 
@@ -10,8 +11,9 @@ export default (props) => {
     const [passwordconfirmation, setPasswordconfirmation] = useState('')
 
 
+    const setUser = useStoreActions(actions => actions.user.setUser)
 
-
+    const setHideModal = useStoreActions(actions=>actions.modals.setHideModal)
 
 
     return (
@@ -22,20 +24,26 @@ export default (props) => {
         onSubmit={async event => {
 
             try {
-                const response = await axios.post('auth/register',{
+                console.log('about to POST to register ')
+                const response = await axios.post('/api/auth/register',{
                     email,
                     password,
                     passwordconfirmation
                 })
+
                 if (response.data.status==='error'){
+                    console.log('we have an error :()=>',)
                     alert(response.data.message)
                     return
                 }
+                setUser(email)
+                setHideModal()
                 
             } catch (error) {
                 alert(error.response.data.message)
                 return
             }
+            event.preventDefault()
 
 
 
@@ -44,8 +52,8 @@ export default (props) => {
                 password,
                 passwordconfirmation
             }) */}
-        console.log("onSubmit-response=>",response)
-        event.preventDefault()
+        {/* console.log("onSubmit-response=>",response) */}
+        {/* event.preventDefault() */}
         {/* const submit = async () => {
             const response = await axios.post('/api/auth/register',{email,password,passwordconfirmation})
             console.log("response from axios=>",response)

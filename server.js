@@ -3,13 +3,25 @@ const next = require('next')
 const session = require('express-session')
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
-const User = require('./model').User
-const sequelize = require('./model').sequelize
+// const User = require('./model/user.js')
+import User from './models/user.js'
+import House from './models/house.js'
+import Review from './models/review.js'
+
+User.sync({ alter: true })
+console.log("User.sync({ alter: true }) called")
+House.sync({ alter: true })
+console.log("House.sync({ alter: true }) called")
+Review.sync({ alter: true })
+console.log("Review.sync({ alter: true }) called")
+
+
+const sequelize = require('./database.js')
 
 const sessionStore = new SequelizeStore({
     db:sequelize
 })
-
+// sessionStore.sync()
 //passport
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
@@ -51,7 +63,7 @@ passport.use(new LocalStrategy({
     done(null, user)
 }))
 
-sessionStore.sync()
+// sessionStore.sync()
 
 const port = parseInt(process.env.PORT,10) ||3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -77,6 +89,12 @@ nextApp.prepare().then(()=>{
     )
 
     server.post('/api/auth/register',async(req,res)=>{
+
+        House.sync()
+        console.log("House.sync() called inside register ")
+        Review.sync()
+        console.log("Review.sync() called inside register")
+
         const {email,password,passwordconfirmation} =req.body
 
         if(password !== passwordconfirmation){
@@ -110,6 +128,62 @@ nextApp.prepare().then(()=>{
 
 
     })
+
+    server.post('/api/auth/logout',(req,res)=>{
+        req.logout()
+        req.session.destroy()
+        console.log('ABOUTS TO END THIS!!!!!!!!!!!!!!!')
+        return res.end(JSON.stringify({status:'success',message:'Logged out'}))
+        console.log('EL FIN !!!!!!!!!!!!!!!')
+
+    })
+
+    server.post('/api/auth/login', async (req, res) => {
+        passport.authenticate('local', (err, user, info) => {
+          if (err) {
+            res.statusCode = 500
+            res.end(
+              JSON.stringify({
+                status: 'error',
+                message: err
+              })
+            )
+            return
+          }
+      
+          if (!user) {
+            res.statusCode = 500
+            res.end(
+              JSON.stringify({
+                status: 'error',
+                message: 'No user matching credentials'
+              })
+            )
+            return
+          }
+      
+          req.login(user, err => {
+            if (err) {
+              res.statusCode = 500
+              res.end(
+                JSON.stringify({
+                  status: 'error',
+                  message: err
+                })
+              )
+              return
+            }
+      
+            return res.end(
+              JSON.stringify({
+                status: 'success',
+                message: 'Logged in'
+              })
+            )
+          })
+        })(req, res, next)
+      })
+      
 
     server.all('*',(req,res)=>{
         return handle(req,res)

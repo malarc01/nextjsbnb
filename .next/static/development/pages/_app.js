@@ -11283,6 +11283,20 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+function MyApp(_ref) {
+  var Component = _ref.Component,
+      pageProps = _ref.pageProps,
+      user = _ref.user;
+
+  if (user) {
+    _store__WEBPACK_IMPORTED_MODULE_11__["default"].getActions().user.setUser(user);
+  }
+
+  return __jsx(easy_peasy__WEBPACK_IMPORTED_MODULE_10__["StoreProvider"], {
+    store: _store__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }, __jsx(Component, pageProps));
+}
+
 MyApp.getInitialProps = function _callee(appContext) {
   var appProps, user;
   return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_6___default.a.async(function _callee$(_context) {
@@ -11311,20 +11325,6 @@ MyApp.getInitialProps = function _callee(appContext) {
     }
   });
 };
-
-function MyApp(_ref) {
-  var Component = _ref.Component,
-      pageProps = _ref.pageProps,
-      user = _ref.user;
-
-  if (user) {
-    _store__WEBPACK_IMPORTED_MODULE_11__["default"].getActions().user.setUser(user);
-  }
-
-  return __jsx(easy_peasy__WEBPACK_IMPORTED_MODULE_10__["StoreProvider"], {
-    store: _store__WEBPACK_IMPORTED_MODULE_11__["default"]
-  }, __jsx(Component, pageProps));
-}
 
 /* harmony default export */ __webpack_exports__["default"] = (MyApp); // export default class extends App {
 // 	render() {

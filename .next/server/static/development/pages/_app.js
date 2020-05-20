@@ -1885,19 +1885,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
-MyApp.getInitialProps = async appContext => {
-  const appProps = await next_app__WEBPACK_IMPORTED_MODULE_8___default.a.getInitialProps(appContext);
-  let user = null;
-
-  if (appContext.ctx.req && appContext.ctx.req.session && appContext.ctx.req.session.passport && appContext.ctx.req.session.passport.user) {
-    user = appContext.ctx.req.session.passport.user;
-  }
-
-  return _objectSpread({}, appProps, {
-    user: user
-  });
-};
-
 function MyApp({
   Component,
   pageProps,
@@ -1911,6 +1898,19 @@ function MyApp({
     store: _store__WEBPACK_IMPORTED_MODULE_10__["default"]
   }, __jsx(Component, pageProps));
 }
+
+MyApp.getInitialProps = async appContext => {
+  const appProps = await next_app__WEBPACK_IMPORTED_MODULE_8___default.a.getInitialProps(appContext);
+  let user = null;
+
+  if (appContext.ctx.req && appContext.ctx.req.session && appContext.ctx.req.session.passport && appContext.ctx.req.session.passport.user) {
+    user = appContext.ctx.req.session.passport.user;
+  }
+
+  return _objectSpread({}, appProps, {
+    user: user
+  });
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (MyApp); // export default class extends App {
 // 	render() {
