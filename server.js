@@ -4,9 +4,23 @@ const session = require('express-session')
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 // const User = require('./model/user.js')
-import User from './models/user.js'
-import House from './models/house.js'
-import Review from './models/review.js'
+// import User from './models/user.js'
+// import House from './models/house.js'
+// import Review from './models/review.js'
+
+const User = require('./models/user.js')
+const House = require('./models/house.js')
+const Review = require('./models/review.js')
+
+
+const port = parseInt(process.env.PORT,10) ||3000
+const dev = process.env.NODE_ENV !== 'production'
+const nextApp = next({dev})
+const handle = nextApp.getRequestHandler()
+
+
+
+
 
 User.sync({ alter: true })
 console.log("User.sync({ alter: true }) called")
@@ -65,10 +79,7 @@ passport.use(new LocalStrategy({
 
 // sessionStore.sync()
 
-const port = parseInt(process.env.PORT,10) ||3000
-const dev = process.env.NODE_ENV !== 'production'
-const nextApp = next({dev})
-const handle = nextApp.getRequestHandler()
+
 
 nextApp.prepare().then(()=>{
     const server = express()
