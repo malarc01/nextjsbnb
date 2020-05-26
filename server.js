@@ -96,11 +96,14 @@ nextApp.prepare().then(() => {
 	);
 
 	server.post('/api/auth/register', async (req, res) => {
-		House.sync();
-		console.log('House.sync() called inside register ');
-		Review.sync();
-		console.log('Review.sync() called inside register');
-
+		
+		// House.sync();
+		// console.log('House.sync() called inside register ');
+		// Review.sync();
+		// console.log('Review.sync() called inside register');
+		console.log("INSIDE /api/auth/register")
+		console.log("req=>",req)
+		console.log("req.body=>",req.body)
 		const { email, password, passwordconfirmation } = req.body;
 
 		if (password !== passwordconfirmation) {
@@ -109,6 +112,7 @@ nextApp.prepare().then(() => {
 		}
 
 		try {
+			console.log("about to create User")
 			const user = await User.create({ email, password });
 
 			req.login(user, (err) => {
@@ -182,6 +186,40 @@ nextApp.prepare().then(() => {
 			});
 		})(req, res, next);
 	});
+
+	server.get('/api/houses/:id',(req,res)=>{
+		const {id} = req.params
+
+		House.findByPk(id).then(house=>{
+			if (house){
+				Review.findAndCountAll({
+					where:{
+						houseId: house.id
+					}
+
+				}).then(reviews=>{
+					house.dataValues.reviews = reviews.rows.map(
+						review => review.dataValues
+					)
+					house.dataValues.reviewsCount = reviews.count
+					res.writeHead(200,{
+						'Content-Type':'application/json'
+					})
+					res.end(JSON.stringify(house.dataValues))
+				})
+			}else {
+				res.writeHead(404,{
+					'Content-Type': 'application/json'
+				})
+				res.end(
+					JSON.stringify({
+						message:`Not found`
+					})
+				)
+			}
+		})
+	})
+
 
 	server.get('/api/houses', (req, res) => {
 		House.findAndCountAll().then((result) => {
