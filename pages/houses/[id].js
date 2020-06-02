@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { useStoreActions } from 'easy-peasy';
+
+
+
 
 import Head from 'next/head';
 import Layout from '../../components/Layout';
@@ -7,6 +9,14 @@ import DateRangePicker from '../../components/DateRangePicker';
 
 import fetch from 'isomorphic-unfetch'
 // import houses from '../houses.json';
+
+
+import { useStoreActions, useStoreState } from 'easy-peasy'
+
+
+import axios from 'axios'
+
+
 
 const calcNumberOfNightsBetweenDates = (startDate, endDate) => {
 	const start = new Date(startDate);
@@ -26,6 +36,9 @@ const House = (props) => {
 
 	const [ numberOfNightsBetweenDates, setNumberOfNightsBetweenDates ] = useState(0);
 	const [ dateChosen, setDateChosen ] = useState(false);
+
+	const user = useStoreState(state => state.user.user)
+
 
 	return (
 		<Layout
@@ -50,9 +63,8 @@ const House = (props) => {
 											<p>{new Date(review.createdAt).toDateString()}</p>
 											<p>{review.comment}</p>
 										</div>
-								)
-		})}
-	</div>
+								)})}
+							</div>
 ) : (
 	<></>
 )}
@@ -75,9 +87,26 @@ const House = (props) => {
 								<p>${props.house.price}</p>
 								<h2>Total price for booking </h2>
 								<p>${(numberOfNightsBetweenDates * props.house.price).toFixed(2)}</p>
-								<button className='reserve' onClick={() => setShowLoginModal}>
-									Reserve 🕌
-								</button>
+								{user ? (
+									<button
+									className='reserve'
+									onClick={() => {
+										//todo: add code to reserve
+									}}>
+									Reserve
+									</button>
+									) : (
+										<button
+										className='reserve'
+										onClick={() => {
+											setShowLoginModal()
+										}}>
+										Log in to Reserve
+										</button>
+										)}
+
+
+
 							</div>
 						)}
 					</aside>

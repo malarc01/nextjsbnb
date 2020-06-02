@@ -1,5 +1,5 @@
 import App from 'next/app';
-import { StoreProvider } from 'easy-peasy';
+import { StoreProvider,useStoreActions } from 'easy-peasy';
 import store from '../store';
 
 
