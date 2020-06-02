@@ -37,6 +37,10 @@ const House = (props) => {
 	const [ numberOfNightsBetweenDates, setNumberOfNightsBetweenDates ] = useState(0);
 	const [ dateChosen, setDateChosen ] = useState(false);
 
+	const [startDate, setStartDate] = useState()
+	const [endDate, setEndDate] = useState()
+
+
 	const user = useStoreState(state => state.user.user)
 
 
@@ -78,7 +82,10 @@ const House = (props) => {
 								console.log('Le fin dia =>', endDate);
 
 								setNumberOfNightsBetweenDates(calcNumberOfNightsBetweenDates(startDate, endDate));
-								setDateChosen(true);
+								setDateChosen(true)
+    							setStartDate(startDate)
+    							setEndDate(endDate)
+
 							}}
 						/>
 						{dateChosen && (
@@ -90,8 +97,23 @@ const House = (props) => {
 								{user ? (
 									<button
 									className='reserve'
-									onClick={() => {
+									onClick={async() => {
 										//todo: add code to reserve
+										try{
+											const response = await axios.post('/api/houses/reserve',{
+												houseId:props.house.id,
+												startDate,
+												endDate
+											})
+											if (response.data.status=='error'){
+												alert(response.data.message)
+												return
+											}
+											console.log(response.data)
+										} catch(error){
+											console.log(error)
+											return
+										}
 									}}>
 									Reserve
 									</button>
