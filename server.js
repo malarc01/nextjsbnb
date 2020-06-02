@@ -260,7 +260,7 @@ nextApp.prepare().then(() => {
 		return dates;
 	};
 
-	server.post('/api/houses/booked', async (req, res) => {
+	server.get('/api/houses/booked', async (req, res) => {
 		const houseId = req.body.houseId;
 
 		const results = await Booking.findAll({
