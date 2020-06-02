@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-
-
-
 import Head from 'next/head';
 import Layout from '../../components/Layout';
 import DateRangePicker from '../../components/DateRangePicker';
@@ -36,7 +33,6 @@ const House = (props) => {
 
 	const [ numberOfNightsBetweenDates, setNumberOfNightsBetweenDates ] = useState(0);
 	const [ dateChosen, setDateChosen ] = useState(false);
-
 	const [startDate, setStartDate] = useState()
 	const [endDate, setEndDate] = useState()
 
@@ -161,7 +157,7 @@ const House = (props) => {
 	);
 };
 House.getInitialProps = async ({ query }) => {
-	console.log(query);
+	console.log("query => ",query);
 
 	const { id } = query;
 

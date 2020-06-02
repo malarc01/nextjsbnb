@@ -231,6 +231,7 @@ nextApp.prepare().then(() => {
 	});
 
 	server.post('/api/houses/reserve', (req, res) => {
+		console.log('inside /api/houses/reserve');
 		const userEmail = req.session.passport.user;
 		User.findOne({ where: { email: userEmail } }).then((user) => {
 			Booking.create({
