@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { useStoreActions, useStoreState } from 'easy-peasy';
 import axios from 'axios'
+import { useStoreActions, useStoreState } from 'easy-peasy';
 
 
 const Header = () => {

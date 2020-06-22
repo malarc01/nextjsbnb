@@ -18,8 +18,12 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
-const Op = require('sequelize').Op;
+const bodyParser = require('body-parser');
 
+const Op = require('sequelize').Op;
+User.sync({ alter: true });
+House.sync({ alter: true });
+Review.sync({ alter: true });
 Booking.sync({ alter: true });
 // User.sync({ alter: true });
 // console.log('User.sync({ alter: true }) called');
@@ -40,11 +44,13 @@ const LocalStrategy = require('passport-local').Strategy;
 
 //Passport Serialization
 passport.serializeUser((user, done) => {
+	console.log('passport serializeUser user =>', user);
 	done(null, user.email);
 });
 
 passport.deserializeUser((email, done) => {
 	User.findOne({ where: { email: email } }).then((user) => {
+		console.log('passport deserializeUser user =>', user);
 		done(null, user);
 	});
 });
@@ -83,6 +89,9 @@ passport.use(
 
 nextApp.prepare().then(() => {
 	const server = express();
+
+	server.use(bodyParser.json());
+
 	server.use(
 		session({
 			secret: 'randomstring',
@@ -104,10 +113,15 @@ nextApp.prepare().then(() => {
 		// console.log('House.sync() called inside register ');
 		// Review.sync();
 		// console.log('Review.sync() called inside register');
+
 		console.log('INSIDE /api/auth/register');
-		console.log('req=>', req);
-		console.log('req.body=>', req.body);
+		console.log('res =>', res);
+		console.log('req =>', req);
+		console.log('req.body =>', req.body);
+		console.log('req.user =>', req.user);
+		// console.log('req=>', req);
 		const { email, password, passwordconfirmation } = req.body;
+		console.log('req.body=>', req.body);
 
 		if (password !== passwordconfirmation) {
 			res.end(JSON.stringify({ status: 'error', message: 'Passwords do not match' }));
@@ -260,8 +274,11 @@ nextApp.prepare().then(() => {
 		return dates;
 	};
 
-	server.get('/api/houses/booked', async (req, res) => {
+	server.post('/api/houses/booked', async (req, res) => {
+		console.log('START OF POST BOOKED API');
+
 		const houseId = req.body.houseId;
+		console.log('houseId =>', houseId);
 
 		const results = await Booking.findAll({
 			where: {
@@ -271,6 +288,7 @@ nextApp.prepare().then(() => {
 				}
 			}
 		});
+		console.log('bookedDates =>', bookedDates);
 
 		let bookedDates = [];
 
@@ -279,7 +297,7 @@ nextApp.prepare().then(() => {
 
 			bookedDates = [ ...bookedDates, ...dates ];
 		}
-
+		console.log('about to remove duplicates');
 		//remove duplicates
 		bookedDates = [ ...new Set(bookedDates.map((date) => date)) ];
 

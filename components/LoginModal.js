@@ -15,19 +15,27 @@ export default  (props) => {
     <>
         <h2>Log in</h2>
         <div>
-            <form onSubmit={async event=>{
+            <form
+             onSubmit={async event=>{
+                console.log("onSubmit for LOGIN")
                 try {
+                    console.log("email for LOGIN =>",email)
+                    console.log("email for LOGIN =>",password)
+                    
                     const response = await axios.post('/api/auth/login', {
                         email,
                         password
                     })
                     if (response.data.status==='error'){
+                        console.log("response.data.status==='error'")
+                        
                         alert(response.data.message)
                         return
                     }
                     setUser(email) 
                     setHideModal()
                 } catch (error) {
+
                 alert(error.response.data.message)
                 return
             

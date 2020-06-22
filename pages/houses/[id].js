@@ -37,9 +37,9 @@ const canReserve = async(houseId,startDate,endDate)=>{
 const getBookedDates = async (houseId) => {
 	console.log("getBookedDates ()")
 	try{
-
-		const response = await axios.post('http://localhost:3000/api/houses/booked',{houseId}
-		)
+		
+		const response = await axios.get('http://localhost:3000/api/houses/booked',{houseId})
+		console.log("RESPONSE  is  =>",response)
 
 		if (response.data.status==='error'){
 			console.log("error getBookedDates ()")
@@ -75,6 +75,7 @@ const House = (props) => {
 
 	const [ numberOfNightsBetweenDates, setNumberOfNightsBetweenDates ] = useState(0);
 	const [ dateChosen, setDateChosen ] = useState(false);
+	// booking startDate & setStartDate
 	const [startDate, setStartDate] = useState()
 	const [endDate, setEndDate] = useState()
 
