@@ -290,6 +290,36 @@ nextApp.prepare().then(() => {
 		});
 	});
 
+	const canBookThoseDates = async (houseId, startDate, endDate) => {
+		const results = await Booking.findAll({
+			where: {
+				houseId: houseId,
+				startDate: {
+					[Op.lte]: new Date(endDate)
+				},
+				endDate: {
+					[Op.gte]: new Date(startDate)
+				}
+			}
+		});
+		return !(results.length > 0);
+	};
+
+	server.post('/api/houses/check', async (req, res) => {
+		const startDate = req.body.startDate;
+		const endDate = req.body.endDate;
+		const houseId = req.body.houseId;
+
+		let message = 'FREE';
+		if (!await canBookThoseDates(houseId, startDate, endDate)) {
+			message = 'BUSY';
+		}
+		res.json({
+			status: 'success',
+			message: message
+		});
+	});
+
 	server.all('*', (req, res) => {
 		return handle(req, res);
 	});

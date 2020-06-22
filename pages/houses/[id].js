@@ -14,6 +14,48 @@ import { useStoreActions, useStoreState } from 'easy-peasy'
 import axios from 'axios'
 
 
+const canReserve = async(houseId,startDate,endDate)=>{
+	try{
+		const houseId = house.id
+		const response = await axios.post('http://localhost:3000/api/houses/check',{houseId, startDate,endDate})
+		if (response.data.status ==='error'){
+			alert(response.data.message)
+			return
+		}
+		if (response.data.message ==='busy') return false
+		return true
+	} catch(error){
+		console.error(error)
+		return
+	}
+}
+
+
+
+
+
+const getBookedDates = async (houseId) => {
+	console.log("getBookedDates ()")
+	try{
+
+		const response = await axios.post('http://localhost:3000/api/houses/booked',{houseId}
+		)
+
+		if (response.data.status==='error'){
+			console.log("error getBookedDates ()")
+			alert(response.data.message)
+			return
+		}
+		return response.data.dates
+	} catch(error){
+		console.log("Oh No error=>",error)
+		console.error(error)
+		return
+	}
+
+}
+
+
 
 const calcNumberOfNightsBetweenDates = (startDate, endDate) => {
 	const start = new Date(startDate);
@@ -83,6 +125,7 @@ const House = (props) => {
     							setEndDate(endDate)
 
 							}}
+							bookedDates = {props.bookedDates}
 						/>
 						{dateChosen && (
 							<div>
@@ -94,7 +137,11 @@ const House = (props) => {
 									<button
 									className='reserve'
 									onClick={async() => {
-										//todo: add code to reserve
+										if (!(await canReserve(props.house.id, startDate,endDate))){
+											alert('The dates chosen are NOT valid')
+											return
+										}
+										
 										try{
 											const response = await axios.post('/api/houses/reserve',{
 												houseId:props.house.id,
@@ -157,6 +204,7 @@ const House = (props) => {
 	);
 };
 House.getInitialProps = async ({ query }) => {
+	console.log("House.getInitialProps = async ({ query }) =>")
 	console.log("query => ",query);
 
 	const { id } = query;
@@ -165,9 +213,12 @@ House.getInitialProps = async ({ query }) => {
 	
 	const house = await res.json()
 
+	const bookedDates = await getBookedDates(id)
+
 
 	return {
-		house
+		house,
+		bookedDates
 	};
 };
 
