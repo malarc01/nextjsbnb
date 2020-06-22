@@ -7,3 +7,6 @@ npm run dev
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
   },
+
+
+  brew services start postgresql
