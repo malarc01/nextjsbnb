@@ -206,6 +206,54 @@ nextApp.prepare().then(() => {
 		})(req, res, next);
 	});
 
+	const getDatesBetweenDates = (startDate, endDate) => {
+		let dates = [];
+		while (startDate < endDate) {
+			dates = [...dates, new Date(startDate)];
+			startDate.setDate(startDate.getDate() + 1);
+		}
+		dates = [...dates, endDate];
+		return dates;
+	};
+
+
+	server.post('/api/houses/booked', async (req, res) => {
+		console.log('START OF POST BOOKED API');
+
+		const houseId = req.body.houseId;
+		console.log('houseId =>', houseId);
+
+		const results = await Booking.findAll({
+			where: {
+				houseId: houseId,
+				endDate: {
+					[Op.gte]: new Date()
+				}
+			}
+		});
+
+		let bookedDates = [];
+		console.log('bookedDates =>', bookedDates);
+
+		for (const result of results) {
+			const dates = getDatesBetweenDates(new Date(result.startDate), new Date(result.endDate));
+
+			bookedDates = [...bookedDates, ...dates];
+			console.log('bookedDates =>', bookedDates);
+
+		}
+		console.log('about to remove duplicates');
+		console.log('bookedDates =>', bookedDates);
+		//remove duplicates
+		bookedDates = [...new Set(bookedDates.map((date) => date))];
+		console.log('bookedDates =>', bookedDates);
+		res.json({
+			status: 'success',
+			message: 'ok',
+			dates: bookedDates
+		});
+	});
+
 	server.get('/api/houses/:id', (req, res) => {
 		const { id } = req.params;
 
@@ -265,50 +313,10 @@ nextApp.prepare().then(() => {
 			});
 		});
 	});
-	// this function is used in POST for /api/houses/booked line 298
-	const getDatesBetweenDates = (startDate, endDate) => {
-		let dates = [];
-		while (startDate < endDate) {
-			dates = [...dates, new Date(startDate)];
-			startDate.setDate(startDate.getDate() + 1);
-		}
-		dates = [...dates, endDate];
-		return dates;
-	};
 
-	server.post('/api/houses/booked', async (req, res) => {
-		console.log('START OF POST BOOKED API');
 
-		const houseId = req.body.houseId;
-		console.log('houseId =>', houseId);
 
-		const results = await Booking.findAll({
-			where: {
-				houseId: houseId,
-				endDate: {
-					[Op.gte]: new Date()
-				}
-			}
-		});
 
-		let bookedDates = [];
-		console.log('bookedDates =>', bookedDates);
-
-		for (const result of results) {
-			const dates = getDatesBetweenDates(new Date(result.startDate), new Date(result.endDate));
-
-			bookedDates = [...bookedDates, ...dates];
-		}
-		console.log('about to remove duplicates');
-		//remove duplicates
-		bookedDates = [...new Set(bookedDates.map((date) => date))];
-
-		res.json({
-			status: 'success',
-			message: 'ok',
-			dates: bookedDates
-		});
-	});
 
 	const canBookThoseDates = async (houseId, startDate, endDate) => {
 		const results = await Booking.findAll({
