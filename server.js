@@ -267,7 +267,7 @@ nextApp.prepare().then(() => {
 	});
 
 	server.post('/api/houses/booked', async (req, res) => {
-		console.log('START OF POST BOOKED API');
+		console.log('INSIDE => server.post(/api/houses/booked')
 
 		const houseId = req.body.houseId;
 		console.log('houseId =>', houseId);
@@ -292,7 +292,7 @@ nextApp.prepare().then(() => {
 
 		}
 		console.log('about to remove duplicates');
-		console.log('bookedDates =>', bookedDates);
+
 		//remove duplicates
 		bookedDates = [...new Set(bookedDates.map((date) => date))];
 		console.log('bookedDates =>', bookedDates);
