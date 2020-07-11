@@ -207,8 +207,46 @@ nextApp.prepare().then(() => {
 	});
 
 
-	server.post('/api/houses/reserve', (req, res) => {
-		console.log('inside /api/houses/reserve');
+	server.post('/api/houses/reserve', async(req, res) => {
+		console.log('inside server.post /api/houses/reserve');
+
+		if (!req.session.passport) {
+			res.writeHead(403, {
+				'Content-Type': 'application/json'
+			})
+			res.end(
+				JSON.stringify({
+					status: 'error',
+					message: 'Unauthorized'
+				})
+			)
+	
+			return
+		}
+	
+		if (
+			!(await canBookThoseDates(
+				req.body.houseId,
+				req.body.startDate,
+				req.body.endDate
+			))
+		) {
+			//busy
+			res.writeHead(500, {
+				'Content-Type': 'application/json'
+			})
+			res.end(
+				JSON.stringify({
+					status: 'error',
+					message: 'House is already booked'
+				})
+			)
+	
+			return
+		}
+	
+
+
 		const userEmail = req.session.passport.user;
 		User.findOne({ where: { email: userEmail } }).then((user) => {
 			Booking.create({
