@@ -35,15 +35,15 @@ const canReserve = async (houseId, startDate, endDate) => {
 
 
 const getBookedDates = async (houseId) => {
-	console.log("getBookedDates ()")
-	console.log("houseId=>", houseId)
+	console.log("getBookedDates = async (houseId) =>")
+	console.log("(getBookedDates = async)-houseId=>", houseId)
 	try {
-		console.log("inside getBookedDates try block ")
+		console.log("(getBookedDates = async (houseId) )-inside getBookedDates try block ")
 
 		const response = await axios.post('http://localhost:3000/api/houses/booked', { houseId })
 
 
-		console.log("RESPONSE  is  =>", response.data)
+		console.log("(getBookedDates = async (houseId )=>) RESPONSE  is  =>", response.data)
 
 		if (response.data.status === 'error') {
 			console.log("error getBookedDates ()")
