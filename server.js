@@ -265,7 +265,7 @@ nextApp.prepare().then(() => {
 			});
 		});
 	});
-
+	// this function is used in POST for /api/houses/booked line 298
 	const getDatesBetweenDates = (startDate, endDate) => {
 		let dates = [];
 		while (startDate < endDate) {
