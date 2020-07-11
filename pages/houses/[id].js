@@ -14,17 +14,17 @@ import { useStoreActions, useStoreState } from 'easy-peasy'
 import axios from 'axios'
 
 
-const canReserve = async(houseId,startDate,endDate)=>{
-	try{
+const canReserve = async (houseId, startDate, endDate) => {
+	try {
 		const houseId = house.id
-		const response = await axios.post('http://localhost:3000/api/houses/check',{houseId, startDate,endDate})
-		if (response.data.status ==='error'){
+		const response = await axios.post('http://localhost:3000/api/houses/check', { houseId, startDate, endDate })
+		if (response.data.status === 'error') {
 			alert(response.data.message)
 			return
 		}
-		if (response.data.message ==='busy') return false
+		if (response.data.message === 'busy') return false
 		return true
-	} catch(error){
+	} catch (error) {
 		console.error(error)
 		return
 	}
@@ -36,19 +36,23 @@ const canReserve = async(houseId,startDate,endDate)=>{
 
 const getBookedDates = async (houseId) => {
 	console.log("getBookedDates ()")
-	try{
-		
-		const response = await axios.get('http://localhost:3000/api/houses/booked',{houseId})
-		console.log("RESPONSE  is  =>",response)
+	console.log("houseId=>", houseId)
+	try {
+		console.log("inside getBookedDates try block ")
 
-		if (response.data.status==='error'){
+		const response = await axios.get('http://localhost:3000/api/houses/booked', { houseId })
+
+
+		console.log("RESPONSE  is  =>", response.data)
+
+		if (response.data.status === 'error') {
 			console.log("error getBookedDates ()")
 			alert(response.data.message)
 			return
 		}
 		return response.data.dates
-	} catch(error){
-		console.log("Oh No error=>",error)
+	} catch (error) {
+		console.log("ANOTHER FRINKIN ERROR=>", error)
 		console.error(error)
 		return
 	}
@@ -73,8 +77,8 @@ const calcNumberOfNightsBetweenDates = (startDate, endDate) => {
 const House = (props) => {
 	const setShowLoginModal = useStoreActions((actions) => actions.modals.setShowLoginModal);
 
-	const [ numberOfNightsBetweenDates, setNumberOfNightsBetweenDates ] = useState(0);
-	const [ dateChosen, setDateChosen ] = useState(false);
+	const [numberOfNightsBetweenDates, setNumberOfNightsBetweenDates] = useState(0);
+	const [dateChosen, setDateChosen] = useState(false);
 	// booking startDate & setStartDate
 	const [startDate, setStartDate] = useState()
 	const [endDate, setEndDate] = useState()
@@ -106,11 +110,12 @@ const House = (props) => {
 											<p>{new Date(review.createdAt).toDateString()}</p>
 											<p>{review.comment}</p>
 										</div>
-								)})}
+									)
+								})}
 							</div>
-) : (
-	<></>
-)}
+						) : (
+								<></>
+							)}
 					</article>
 					<aside>
 						<h2>Add dates for prices</h2>
@@ -122,11 +127,11 @@ const House = (props) => {
 
 								setNumberOfNightsBetweenDates(calcNumberOfNightsBetweenDates(startDate, endDate));
 								setDateChosen(true)
-    							setStartDate(startDate)
-    							setEndDate(endDate)
+								setStartDate(startDate)
+								setEndDate(endDate)
 
 							}}
-							bookedDates = {props.bookedDates}
+							bookedDates={props.bookedDates}
 						/>
 						{dateChosen && (
 							<div>
@@ -136,40 +141,43 @@ const House = (props) => {
 								<p>${(numberOfNightsBetweenDates * props.house.price).toFixed(2)}</p>
 								{user ? (
 									<button
-									className='reserve'
-									onClick={async() => {
-										if (!(await canReserve(props.house.id, startDate,endDate))){
-											alert('The dates chosen are NOT valid')
-											return
-										}
-										
-										try{
-											const response = await axios.post('/api/houses/reserve',{
-												houseId:props.house.id,
-												startDate,
-												endDate
-											})
-											if (response.data.status=='error'){
-												alert(response.data.message)
+										className='reserve'
+										onClick={async () => {
+											if (!(await canReserve(props.house.id, startDate, endDate))) {
+												alert('The dates chosen are NOT valid')
 												return
 											}
-											console.log(response.data)
-										} catch(error){
-											console.log(error)
-											return
-										}
-									}}>
-									Reserve
-									</button>
-									) : (
-										<button
-										className='reserve'
-										onClick={() => {
-											setShowLoginModal()
+
+											try {
+												console.log(" Reserve clicked => inside try block")
+												const response = await axios.post('/api/houses/reserve', {
+													houseId: props.house.id,
+													startDate,
+													endDate
+												})
+												if (response.data.status == 'error') {
+													alert(response.data.message)
+													return
+												}
+												console.log("response.data =>", response.data)
+											} catch (error) {
+
+												console.log("GREAT A FRUIKN error =>", error)
+
+												return
+											}
 										}}>
-										Log in to Reserve
+										Reserve
+									</button>
+								) : (
+										<button
+											className='reserve'
+											onClick={() => {
+												setShowLoginModal()
+											}}>
+											Log in to Reserve
 										</button>
-										)}
+									)}
 
 
 
@@ -205,16 +213,23 @@ const House = (props) => {
 	);
 };
 House.getInitialProps = async ({ query }) => {
-	console.log("House.getInitialProps = async ({ query }) =>")
-	console.log("query => ",query);
+
+	console.log("House.getInitialProps = async ({ ${query }) =>")
+	console.log("query => ", query);
 
 	const { id } = query;
+	console.log("id => ", id);
 
 	const res = await fetch(`http://localhost:3000/api/houses/${id}`)
-	
+
+	console.log(`http://localhost:3000/api/houses/${id}`)
+
 	const house = await res.json()
+	console.log("house=>", house)
 
 	const bookedDates = await getBookedDates(id)
+
+	console.log("bookedDates =>", bookedDates)
 
 
 	return {

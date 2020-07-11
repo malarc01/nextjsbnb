@@ -49,8 +49,10 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((email, done) => {
+	console.log('INSIDE => passport.deserializeUser((email, done) =>')
 	User.findOne({ where: { email: email } }).then((user) => {
-		console.log('passport deserializeUser user =>', user);
+		passport.deserializeUser
+		// console.log('passport deserializeUser user =>', user);
 		done(null, user);
 	});
 });
@@ -61,7 +63,7 @@ passport.use(
 			usernameField: 'email',
 			passwordField: 'password'
 		},
-		async function(email, password, done) {
+		async function (email, password, done) {
 			if (!email || !password) {
 				done('Email and password required', null);
 				return;
@@ -267,14 +269,14 @@ nextApp.prepare().then(() => {
 	const getDatesBetweenDates = (startDate, endDate) => {
 		let dates = [];
 		while (startDate < endDate) {
-			dates = [ ...dates, new Date(startDate) ];
+			dates = [...dates, new Date(startDate)];
 			startDate.setDate(startDate.getDate() + 1);
 		}
-		dates = [ ...dates, endDate ];
+		dates = [...dates, endDate];
 		return dates;
 	};
 
-	server.post('/api/houses/booked', async (req, res) => {
+	server.get('/api/houses/booked', async (req, res) => {
 		console.log('START OF POST BOOKED API');
 
 		const houseId = req.body.houseId;
@@ -288,18 +290,18 @@ nextApp.prepare().then(() => {
 				}
 			}
 		});
-		console.log('bookedDates =>', bookedDates);
 
 		let bookedDates = [];
+		console.log('bookedDates =>', bookedDates);
 
 		for (const result of results) {
 			const dates = getDatesBetweenDates(new Date(result.startDate), new Date(result.endDate));
 
-			bookedDates = [ ...bookedDates, ...dates ];
+			bookedDates = [...bookedDates, ...dates];
 		}
 		console.log('about to remove duplicates');
 		//remove duplicates
-		bookedDates = [ ...new Set(bookedDates.map((date) => date)) ];
+		bookedDates = [...new Set(bookedDates.map((date) => date))];
 
 		res.json({
 			status: 'success',
