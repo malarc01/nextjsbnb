@@ -226,11 +226,11 @@ House.getInitialProps = async ({ query }) => {
 	console.log(`http://localhost:3000/api/houses/${id}`)
 
 	const house = await res.json()
-	console.log("house=>", house)
+	console.log("(House.getInitialProps)- house=>", house)
 
 	const bookedDates = await getBookedDates(id)
 
-	console.log("bookedDates =>", bookedDates)
+	console.log("(House.getInitialProps)-bookedDates =>", bookedDates)
 
 
 	return {
