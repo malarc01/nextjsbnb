@@ -276,7 +276,7 @@ nextApp.prepare().then(() => {
 		return dates;
 	};
 
-	server.get('/api/houses/booked', async (req, res) => {
+	server.post('/api/houses/booked', async (req, res) => {
 		console.log('START OF POST BOOKED API');
 
 		const houseId = req.body.houseId;
