@@ -38,9 +38,13 @@ const numberOfNightsBetweenDates = (startDate, endDate) => {
 };
 
 export default ({ datesChanged, bookedDates }) => {
-	const [ startDate, setStartDate ] = useState(today);
+	const [startDate, setStartDate] = useState(today);
 
-	const [ endDate, setEndDate ] = useState(tomorrow);
+	const [endDate, setEndDate] = useState(tomorrow);
+
+	bookedDates = bookedDates.map(date => {
+		return new Date(date)
+	})
 
 	return (
 		<div className='date-range-picker-container'>

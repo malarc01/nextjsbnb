@@ -40,7 +40,7 @@ const getBookedDates = async (houseId) => {
 	try {
 		console.log("inside getBookedDates try block ")
 
-		const response = await axios.get('http://localhost:3000/api/houses/booked', { houseId })
+		const response = await axios.post('http://localhost:3000/api/houses/booked', { houseId })
 
 
 		console.log("RESPONSE  is  =>", response.data)
@@ -50,10 +50,11 @@ const getBookedDates = async (houseId) => {
 			alert(response.data.message)
 			return
 		}
+
 		return response.data.dates
 	} catch (error) {
 		console.log("ANOTHER FRINKIN ERROR=>", error)
-		console.error(error)
+		// console.error(error)
 		return
 	}
 
