@@ -12,6 +12,7 @@ import { useStoreActions, useStoreState } from 'easy-peasy'
 
 
 import axios from 'axios'
+import Stripe from 'stripe';
 
 
 const canReserve = async (houseId, startDate, endDate) => {
@@ -144,23 +145,45 @@ const House = (props) => {
 									<button
 										className='reserve'
 										onClick={async () => {
+											// check Reserve is available
 											if (!(await canReserve(props.house.id, startDate, endDate))) {
 												alert('The dates chosen are NOT valid')
 												return
 											}
-
+											// POST to reserve endpoint 
 											try {
 												console.log(" Reserve clicked => inside try block")
-												const response = await axios.post('/api/houses/reserve', {
-													houseId: props.house.id,
-													startDate,
-													endDate
-												})
-												if (response.data.status == 'error') {
-													alert(response.data.message)
+												// POST to stripe/session
+												const sessionResponse = await axios.post('/api/stripe/session', { amount: props.house.price * numberOfNightsBetweenDates })
+												// error check 
+												if (sessionResponse.data.status === 'error') {
+													alert(sessionResponse.data.message)
 													return
 												}
-												console.log("response.data =>", response.data)
+
+												const sessionId = sessionResponse.data.sessionId
+												const stripePublicKey = sessionResponse.data.stripePublicKey
+												// POST to reserve endpoint
+												const reserveResponse = await axios.post('/api/houses/reserve', {
+													houseId: props.house.id,
+													startDate,
+													endDate,
+													sessionId
+												}
+												)
+												// reserve endpoint error logging
+												if (reserveResponse.data.status === 'error') {
+
+													alert(reserveResponse.data.message)
+													return
+												}
+
+												const stripe = Stripe(stripePublicKey)
+												const { error } = await stripe.redirectToCheckout({
+													sessionId
+												})
+												console.log("reserveResponse.data", reserveResponse.data)
+
 											} catch (error) {
 
 												console.log("GREAT A FRUIKN error =>", error)
@@ -215,7 +238,9 @@ const House = (props) => {
 };
 House.getInitialProps = async ({ query }) => {
 
+
 	console.log("House.getInitialProps = async ({ ${query }) =>")
+
 	console.log("query => ", query);
 
 	const { id } = query;

@@ -1,4 +1,5 @@
-import dotenv from 'dotenv'
+
+const dotenv = require('dotenv')
 dotenv.config()
 
 const express = require('express');
@@ -95,7 +96,12 @@ passport.use(
 nextApp.prepare().then(() => {
 	const server = express();
 
-	server.use(bodyParser.json());
+	server.use(bodyParser.json({
+		verify: (req, res, buf) => { //make rawBody available
+			req.rawBody = buf
+		}
+	})
+	);
 
 	server.use(
 		session({
@@ -212,7 +218,7 @@ nextApp.prepare().then(() => {
 
 	server.post('/api/houses/reserve', async (req, res) => {
 		console.log('inside server.post /api/houses/reserve');
-
+		// if user NOT logged in passport return 405
 		if (!req.session.passport) {
 			res.writeHead(403, {
 				'Content-Type': 'application/json'
@@ -227,6 +233,7 @@ nextApp.prepare().then(() => {
 			return
 		}
 
+		// if user can not book dates => error
 		if (
 			!(await canBookThoseDates(
 				req.body.houseId,
@@ -248,6 +255,8 @@ nextApp.prepare().then(() => {
 			return
 		}
 
+		const sessionId = req.body.sessionId
+
 
 
 		const userEmail = req.session.passport.user;
@@ -256,7 +265,8 @@ nextApp.prepare().then(() => {
 				houseId: req.body.houseId,
 				userId: user.id,
 				startDate: req.body.startDate,
-				endDate: req.body.endDate
+				endDate: req.body.endDate,
+				sessionId: req.body.sessionId
 			}).then(() => {
 				res.writeHead(200, {
 					'Content-Type': 'application/json'
@@ -411,6 +421,7 @@ nextApp.prepare().then(() => {
 		const amount = req.body.amount
 
 		const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+
 		const session = await stripe.checkout.sessions.create({
 			payment_method_types: ['card'],
 			line_items: [
@@ -436,9 +447,62 @@ nextApp.prepare().then(() => {
 		)
 	})
 
+	server.post('/api/stripe/webhook', async (req, res) => {
+
+		const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+		const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
+		const sig = req.headers['stripe-signature']
+
+
+		let event
+
+		try {
+			event = stripe.webhooks.constructEvent(req.rawBody, sig, endpointSecret)
+		} catch (err) {
+			res.writeHead(400, {
+				'Content-Type': 'application/json'
+			})
+			console.error("err.message from stripe/webhook catch block =>", err.message)
+			res.end(JSON.stringify({ status: 'success', message: `Webhook Error:${err.message}` }))
+			return
+		}
+		// checks if user session is completed for payment to be marked true in db
+		if (event.type === 'checkout.session.completed') {
+			const sessionId = event.data.object.id
+
+			try {
+				Booking.update({ paid: true }, { where: { sessionId } })
+			} catch (err) {
+				console.log("if error checkout.session.completed is true =>", err)
+
+			}
+		}
+
+		res.writeHead(200, {
+			'Content-Type': 'application/json'
+		})
+
+		res.end(JSON.stringify({ received: true }))
+
+
+	})
 
 
 
+	server.post('/api/bookings/clean', (req, res) => {
+		Booking.destroy({
+			where: {
+				paid: false
+			}
+		})
+		res.writeHead(200, {
+			'Content-Type': 'application/json'
+		})
+		res.end(JSON.stringify({
+			status: 'success',
+			message: 'ok'
+		}))
+	})
 
 
 
