@@ -8,9 +8,9 @@ const Header = () => {
 
 	const setShowRegistrationModal = useStoreActions((actions) => actions.modals.setShowRegistrationModal);
 
-	const user = useStoreState(state=>state.user.user)
+	const user = useStoreState(state => state.user.user)
 
-	const setUser = useStoreActions(actions=> actions.user.setUser)
+	const setUser = useStoreActions(actions => actions.user.setUser)
 
 	return (
 		<div className='nav-container'>
@@ -23,32 +23,38 @@ const Header = () => {
 				<ul>
 					{user ? (
 						<>
-						<li className='username'>{user}</li>
-						<li>
-							<a href='#'
-							onClick={async()=>{
-								await axios.post('/api/auth/logout')
-								setUser(null)
+							<li className='username'>{user}</li>
+							<li>
+								<Link href='/bookings'>
+									<a>Bookings</a>
+								</Link>
+							</li>
 
-							}}>
-							Log Out
+							<li>
+								<a href='#'
+									onClick={async () => {
+										await axios.post('/api/auth/logout')
+										setUser(null)
+
+									}}>
+									Log Out
 							</a>
-						</li>
+							</li>
 						</>
-					):(
-						<>
-						<li>
-							<a href='#' onClick={()=>setShowRegistrationModal()}>
-								Sign Up
+					) : (
+							<>
+								<li>
+									<a href='#' onClick={() => setShowRegistrationModal()}>
+										Sign Up
 							</a>
-						</li>
-						<li>
-							<a href='#' onClick={()=>setShowLoginModal()}>
-								Log in
+								</li>
+								<li>
+									<a href='#' onClick={() => setShowLoginModal()}>
+										Log in
 							</a>
-						</li>
-						</>
-					)}
+								</li>
+							</>
+						)}
 				</ul>
 			</nav>
 			<style jsx>
