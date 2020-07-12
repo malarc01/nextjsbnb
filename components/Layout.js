@@ -20,12 +20,11 @@ const Layout = (props) => {
 
 	// console.log(props);
 	return (
+
 		<div>
 			<Head>
 				<script src="https://js.stripe.com/v3/"></script>
 			</Head>
-		</div>
-		<div>
 			<Header />
 			<main>{props.content}</main>
 			{showModal && (
