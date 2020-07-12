@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 const express = require('express');
 const next = require('next');
 const session = require('express-session');
@@ -207,7 +210,7 @@ nextApp.prepare().then(() => {
 	});
 
 
-	server.post('/api/houses/reserve', async(req, res) => {
+	server.post('/api/houses/reserve', async (req, res) => {
 		console.log('inside server.post /api/houses/reserve');
 
 		if (!req.session.passport) {
@@ -220,10 +223,10 @@ nextApp.prepare().then(() => {
 					message: 'Unauthorized'
 				})
 			)
-	
+
 			return
 		}
-	
+
 		if (
 			!(await canBookThoseDates(
 				req.body.houseId,
@@ -241,10 +244,10 @@ nextApp.prepare().then(() => {
 					message: 'House is already booked'
 				})
 			)
-	
+
 			return
 		}
-	
+
 
 
 		const userEmail = req.session.passport.user;
@@ -402,6 +405,36 @@ nextApp.prepare().then(() => {
 			res.end(JSON.stringify(houses));
 		});
 	});
+
+
+	server.post('/api/stripe/session', async (req, res) => {
+		const amount = req.body.amount
+
+		const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+		const session = await stripe.checkout.sessions.create({
+			payment_method_types: ['card'],
+			line_items: [
+				{
+					name: 'Booking house on application',
+					amount: amount * 100,
+					currency: 'usd',
+					quantity: 1
+				}
+			],
+			success_url: process.env.BASE_URL + '/bookings',
+			cancel_url: process.env.BASE_URL + '/bookings'
+		})
+		res.writeHead(200, {
+			'Content-Type': 'application/json'
+		})
+		res.end(
+			JSON.stringify({
+				status: 'success',
+				sessionId: session.id,
+				stripePublicKey: process.env.STRIPE_PUBLIC_KEY
+			})
+		)
+	})
 
 
 
