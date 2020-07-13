@@ -2,6 +2,8 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
+const sanitizeHtml = require('sanitize-html')
+
 const express = require('express');
 const next = require('next');
 const session = require('express-session');
@@ -23,6 +25,7 @@ const nextApp = next({ dev });
 const handle = nextApp.getRequestHandler();
 
 const bodyParser = require('body-parser');
+
 
 const Op = require('sequelize').Op;
 User.sync({ alter: true });
@@ -634,16 +637,21 @@ nextApp.prepare().then(() => {
 					message: 'Unauthorized'
 				})
 			)
-	
+
 			return
 		}
-	
+
 		const userEmail = req.session.passport.user
 
 		User.findOne({ where: { email: userEmail } }).then(user => {
 
 			houseData.host = user.id
-			
+
+			houseData.description = sanitizeHtml(houseData.description, {
+				allowedTags: ['b', 'i', 'em', 'strong', 'p', 'br']
+			})
+
+
 			House.create(houseData).then(() => {
 				res.writeHead(200, {
 					'Content-Type': 'application/json'
@@ -652,7 +660,81 @@ nextApp.prepare().then(() => {
 			})
 		})
 	})
-	
+
+	server.post('/api/host/edit', async (req, res) => {
+
+		const houseData = req.body.house
+		// checks for session.passport is true else return 403 forbidden 
+		if (!req.session.passport) {
+			res.writeHead(403, {
+				'Content-Type': 'application/json'
+			})
+			res.end(
+				JSON.stringify({
+					status: 'error',
+					message: 'Unauthorized'
+				})
+			)
+
+			return
+		}
+
+		const userEmail = req.session.passport.user
+
+
+		User.findOne({ where: { email: userEmail } }).then(user => {
+			House.findByPk(houseData.id).then(house => {
+				if (house) {
+					if (house.host !== user.id) {
+						res.writeHead(403, {
+							'Content-Type': 'application/json'
+						})
+						res.end(
+							JSON.stringify({
+								status: 'error',
+								message: 'Unauthorized'
+							})
+						)
+
+						return
+					}
+
+					houseData.description = sanitizeHtml(houseData.description, {
+						allowedTags: ['b', 'i', 'em', 'strong', 'p', 'br']
+					})
+
+					House.update(houseData, {
+						where: {
+							id: houseData.id
+						}
+					})
+						.then(() => {
+							res.writeHead(200, {
+								'Content-Type': 'application/json'
+							})
+							res.end(JSON.stringify({ status: 'success', message: 'ok' }))
+						})
+						.catch(err => {
+							res.writeHead(500, {
+								'Content-Type': 'application/json'
+							})
+							res.end(JSON.stringify({ status: 'error', message: err.name }))
+						})
+				} else {
+					res.writeHead(404, {
+						'Content-Type': 'application/json'
+					})
+					res.end(
+						JSON.stringify({
+							message: `Not found`
+						})
+					)
+					return
+				}
+			})
+		})
+	})
+
 
 
 
