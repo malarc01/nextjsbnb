@@ -1,10 +1,26 @@
 import { useState } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
 
 import Layout from '../../components/Layout'
 
 const NewHouse = () => {
   const [title, setTitle] = useState('')
+  const [town, setTown] = useState('')
+  const [price, setPrice] = useState(0)
+  const [picture, setPicture] = useState('')
+  const [description, setDescription] = useState('')
+  const [guests, setGuests] = useState(0)
+  const [bedrooms, setBedrooms] = useState(0)
+  const [beds, setBeds] = useState(0)
+  const [baths, setBaths] = useState(0)
+  const [wifi, setWifi] = useState(false)
+  const [kitchen, setKitchen] = useState(false)
+  const [heating, setHeating] = useState(false)
+  const [freeParking, setFreeParking] = useState(false)
+  const [entirePlace, setEntirePlace] = useState(false)
+  const [type, setType] = useState('Entire house')
+
 
   return (
     <Layout
