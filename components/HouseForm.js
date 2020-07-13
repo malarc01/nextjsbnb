@@ -238,6 +238,7 @@ const HouseForm = props => {
 
       <style jsx>{`
         input[type='number'],
+        input[type='file'],
         select,
         textarea {
           display: block;
