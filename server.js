@@ -464,13 +464,14 @@ nextApp.prepare().then(() => {
 			})
 			console.error(
 				"err.message from stripe/webhook catch block =>", err.message)
-			res.end(JSON.stringify({ 
+			res.end(JSON.stringify({
 				status: 'success',
-				message: `Webhook Error:${err.message}` })
+				message: `Webhook Error:${err.message}`
+			})
 			)
 			return
 		}
-		
+
 		// checks if user session is completed for payment to be marked true in db
 		if (event.type === 'checkout.session.completed') {
 			const sessionId = event.data.object.id
@@ -511,49 +512,111 @@ nextApp.prepare().then(() => {
 
 
 	server.get('/api/bookings/list', async (req, res) => {
-    if (!req.session.passport || !req.session.passport.user) {
-      res.writeHead(403, {
-        'Content-Type': 'application/json'
-      })
-      res.end(
-        JSON.stringify({
-          status: 'error',
-          message: 'Unauthorized'
-        })
-      )
+		if (!req.session.passport || !req.session.passport.user) {
+			res.writeHead(403, {
+				'Content-Type': 'application/json'
+			})
+			res.end(
+				JSON.stringify({
+					status: 'error',
+					message: 'Unauthorized'
+				})
+			)
 
-      return
-    }
+			return
+		}
 
-    const userEmail = req.session.passport.user
-    const user = await User.findOne({ where: { email: userEmail } })
+		const userEmail = req.session.passport.user
+		const user = await User.findOne({ where: { email: userEmail } })
 
-    Booking.findAndCountAll({
-      where: {
-        paid: true,
-        userId: user.id,
-        endDate: {
-          [Op.gte]: new Date()
-        }
-      },
-      order: [['startDate', 'ASC']]
-    }).then(async result => {
-      const bookings = await Promise.all(
-        result.rows.map(async booking => {
-          const data = {}
-          data.booking = booking.dataValues
-          data.house = (await House.findByPk(data.booking.houseId)).dataValues
-          return data
-        })
-      )
+		Booking.findAndCountAll({
+			where: {
+				paid: true,
+				userId: user.id,
+				endDate: {
+					[Op.gte]: new Date()
+				}
+			},
+			order: [['startDate', 'ASC']]
+		}).then(async result => {
+			const bookings = await Promise.all(
+				result.rows.map(async booking => {
+					const data = {}
+					data.booking = booking.dataValues
+					data.house = (await House.findByPk(data.booking.houseId)).dataValues
+					return data
+				})
+			)
 
-      res.writeHead(200, {
-        'Content-Type': 'application/json'
-      })
-      res.end(JSON.stringify(bookings))
-    })
-  })
+			res.writeHead(200, {
+				'Content-Type': 'application/json'
+			})
+			res.end(JSON.stringify(bookings))
+		})
+	})
 
+	server.get('/api/host/list', async (req, res) => {
+		// check for req.session.passport or req.session.passport.user present else response with 403 Forbidden error
+		if (!req.session.passport || !req.session.passport.user) {
+			res.writeHead(403, {
+				'Content-Type': 'application/json'
+			})
+			res.end(
+				JSON.stringify({
+					status: 'error',
+					message: 'Unauthorized'
+				})
+			)
+
+			return
+		}
+
+		const userEmail = req.session.passport.user
+		const user = await User.findOne({ where: { email: userEmail } })
+
+		const houses = await House.findAll({
+			where: {
+				host: user.id
+			}
+		})
+
+		const houseIds = house.map(house => house.dataValues.id)
+
+		const bookingsData = await Booking.findAll({
+			where: {
+				paid: true,
+				houseId: {
+					[Op.in]: houseIds
+				},
+				endDate: {
+					[Op.gte]: new Date()
+				}
+			},
+			order: [['startDate', 'ASC']]
+		})
+
+		const bookings = await Promise.all(
+			bookingsData.map(async booking => {
+				return {
+					booking: booking.dataValues,
+					house: houses.filter(
+						house => house.dataValues.id === booking.dataValues.houseId
+					)[0].dataValues
+				}
+			})
+		)
+
+
+		res.writeHead(200, {
+			'Content-Type': 'application/json'
+		})
+		res.end(
+			JSON.stringify({
+				bookings,
+				houses
+			})
+		)
+	})
 
 
 
