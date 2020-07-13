@@ -4,6 +4,7 @@ import { useStoreActions, useStoreState } from 'easy-peasy';
 
 
 const Header = () => {
+
 	const setShowLoginModal = useStoreActions((actions) => actions.modals.setShowLoginModal);
 
 	const setShowRegistrationModal = useStoreActions((actions) => actions.modals.setShowRegistrationModal);

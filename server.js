@@ -580,7 +580,7 @@ nextApp.prepare().then(() => {
 			}
 		})
 
-		const houseIds = house.map(house => house.dataValues.id)
+		const houseIds = houses.map(house => house.dataValues.id)
 
 		const bookingsData = await Booking.findAll({
 			where: {
