@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Head from 'next/head'
 import Router from 'next/router'
+import axios from 'axios'
 
 import Layout from '../../components/Layout'
 
@@ -54,13 +55,15 @@ const NewHouse = () => {
                     type
                   }
                 })
+                // checks for error in data.status returns alert
                 if (response.data.status === 'error') {
                   alert(response.data.message)
                   return
                 }
-
+                // pushes user to /host
                 Router.push('/host')
               } catch (error) {
+                console.log("catch error in onSubmit in newHouse axios call")
                 alert(error.response.data.message)
                 return
               }

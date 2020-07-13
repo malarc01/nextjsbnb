@@ -620,7 +620,9 @@ nextApp.prepare().then(() => {
 
 
 	server.post('/api/host/new', async (req, res) => {
+
 		const houseData = req.body.house
+
 		// if NO session return 403 forbidden
 		if (!req.session.passport) {
 			res.writeHead(403, {
@@ -637,8 +639,11 @@ nextApp.prepare().then(() => {
 		}
 	
 		const userEmail = req.session.passport.user
+
 		User.findOne({ where: { email: userEmail } }).then(user => {
+
 			houseData.host = user.id
+			
 			House.create(houseData).then(() => {
 				res.writeHead(200, {
 					'Content-Type': 'application/json'

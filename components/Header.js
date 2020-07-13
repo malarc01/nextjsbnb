@@ -15,26 +15,31 @@ const Header = () => {
 
 	return (
 		<div className='nav-container'>
+
 			<Link href='/'>
 				<a>
 					<img src='/img/logo.png' alt='' />
 				</a>
 			</Link>
+
 			<nav>
 				<ul>
 					{user ? (
 						<>
 							<li className='username'>{user}</li>
+
 							<li>
 								<Link href='/bookings'>
 									<a>Bookings</a>
 								</Link>
 							</li>
+
 							<li>
 								<Link href='/host'>
 									<a>Your Houses</a>
 								</Link>
 							</li>
+
 							<li>
 								<Link href='/host/new'>
 									<a>Add House</a>
@@ -51,6 +56,7 @@ const Header = () => {
 									Log Out
 							</a>
 							</li>
+
 						</>
 					) : (
 							<>
