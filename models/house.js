@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const sequelize = require('../database.js')
 
-class House extends Sequelize.Model {}
+class House extends Sequelize.Model { }
 
 House.init(
   {
@@ -16,7 +16,7 @@ House.init(
     town: { type: Sequelize.DataTypes.STRING, allowNull: false },
     title: { type: Sequelize.DataTypes.STRING, allowNull: false },
     price: { type: Sequelize.DataTypes.INTEGER, allowNull: false },
-    superhost: { type: Sequelize.DataTypes.BOOLEAN, allowNull: false },
+    superhost: { type: Sequelize.DataTypes.BOOLEAN, allowNull: true, defaultValue: false },
     description: { type: Sequelize.DataTypes.TEXT },
     guests: { type: Sequelize.DataTypes.INTEGER, allowNull: false },
     bedrooms: { type: Sequelize.DataTypes.INTEGER, allowNull: false },
