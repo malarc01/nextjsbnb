@@ -113,7 +113,15 @@ const HouseForm = props => {
         </p>
         <p>
           <label>House picture</label>
-          <input type='file' id='fileUpload' />
+          <input type='file' id='fileUpload' accept='image/*' onChange={async event => {
+            const files = event.target.files
+            const formData = new FormData()
+            formData.append('image', files[0])
+            const response = await axios.post('/api/host/image', formData)
+            setPicture('http://localhost:3000' + response.data.path)
+
+          }}
+          />
           {picture ? <img src={picture} width='200' alt='House image' /> : ''}
         </p>
         <p>
