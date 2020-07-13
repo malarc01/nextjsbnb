@@ -112,14 +112,9 @@ const HouseForm = props => {
           />
         </p>
         <p>
-          <label>House picture URL</label>
-          <input
-            required
-            onChange={event => setPicture(event.target.value)}
-            type='text'
-            placeholder='House picture URL'
-            value={picture}
-          />
+          <label>House picture</label>
+          <input type='file' id='fileUpload' />
+          {picture ? <img src={picture} width='200' alt='House image' /> : ''}
         </p>
         <p>
           <Editor
