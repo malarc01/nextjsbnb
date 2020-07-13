@@ -3,6 +3,8 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const sanitizeHtml = require('sanitize-html')
+const fileupload = require('express-fileupload')
+
 
 const express = require('express');
 const next = require('next');
@@ -99,7 +101,8 @@ passport.use(
 nextApp.prepare().then(() => {
 	const server = express();
 
-	server.use(bodyParser.json({
+	server.use(
+		bodyParser.json({
 		verify: (req, res, buf) => { //make rawBody available
 			req.rawBody = buf
 		}
