@@ -1,4 +1,5 @@
 
+const randomstring = require('randomstring')
 const dotenv = require('dotenv')
 dotenv.config()
 
@@ -103,10 +104,11 @@ nextApp.prepare().then(() => {
 
 	server.use(
 		bodyParser.json({
-		verify: (req, res, buf) => { //make rawBody available
-			req.rawBody = buf
-		}
-	})
+			verify: (req, res, buf) => { //make rawBody available
+				req.rawBody = buf
+			}
+		}),
+		fileupload()
 	);
 
 	server.use(
@@ -739,6 +741,44 @@ nextApp.prepare().then(() => {
 	})
 
 
+	server.post('/api/host/image', (req, res) => {
+		// checks for true passport else return 403 Forbidden
+		if (!req.session.passport) {
+			res.writeHead(403, {
+				'Content-Type': 'application/json'
+			})
+			res.end(
+				JSON.stringify({
+					status: 'error',
+					message: 'Unauthorized'
+				})
+			)
+			return
+		}
+
+		const image = req.files.image
+		const fileName = randomstring.generate(7) + image.name.replace(/\s/g, '')
+		const path = __dirname + '/public/img/houses/' + fileName
+
+		image.mv(path,(error)=>{
+			// error handling + console.log
+			if (error){
+				console.log("image error",error)
+				res.writeHead(500,{
+					'Content-Type':'application/json'
+				})
+				res.end(JSON.stringify({status:'error',message:error}))
+				return
+			}
+			// 200 response
+			res.writeHead(200,{
+				'Content-Type':'application/json'
+			})
+			res.end(JSON.stringify({status:'success',path:'/img/houses/' + fileName}))
+
+		})
+
+	})
 
 
 
