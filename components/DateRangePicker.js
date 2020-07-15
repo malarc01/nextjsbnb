@@ -1,11 +1,14 @@
 import { useState } from 'react';
+
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
 import { DateUtils } from 'react-day-picker';
 
 import dateFnsFormat from 'date-fns/format';
-// import { format } from 'date-fns'
 import dateFnsParse from 'date-fns/parse';
+
+import 'react-day-picker/lib/style.css';
+
+// import { format } from 'date-fns'
 
 const parseDate = (str, format, locale) => {
 	const parsed = dateFnsParse(str, format, new Date(), { locale });
@@ -16,17 +19,20 @@ const formatDate = (date, format, locale) => {
 	dateFnsFormat(date, format, { locale });
 };
 
-const format = 'MMM dd  yyyy';
+const format = ' dd MMM  yyyy';
 
 const today = new Date();
+console.log("today =>", today)
 const tomorrow = new Date(today);
+console.log("tomorrow =>", today)
+
 tomorrow.setDate(tomorrow.getDate() + 1);
 
 const numberOfNightsBetweenDates = (startDate, endDate) => {
 	const start = new Date(startDate); //clone
-	console.log('start date=>', start); //clone
+	console.log('start date =>', start); //clone
 	const end = new Date(endDate); // clone
-	console.log('end date=>', end); //clone
+	console.log('end date =>', end); //clone
 
 	let dayCount = 0;
 
@@ -118,15 +124,8 @@ export default ({ datesChanged, bookedDates }) => {
 					}
 				`}
 			</style>
-			<style jsx global>
-				{`
-					.DayPickerInput input {
-						width: 120px;
-						padding: 10px;
-						font-size: 16px;
-					}
-				`}
-			</style>
+
+
 		</div>
 	);
 };

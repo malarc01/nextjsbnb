@@ -108,7 +108,7 @@ nextApp.prepare().then(() => {
 				req.rawBody = buf
 			}
 		}),
-		fileupload()
+
 	);
 
 	server.use(
@@ -124,7 +124,8 @@ nextApp.prepare().then(() => {
 			store: sessionStore
 		}),
 		passport.initialize(),
-		passport.session()
+		passport.session(),
+		fileupload()
 	);
 
 	server.post('/api/auth/register', async (req, res) => {
@@ -760,21 +761,21 @@ nextApp.prepare().then(() => {
 		const fileName = randomstring.generate(7) + image.name.replace(/\s/g, '')
 		const path = __dirname + '/public/img/houses/' + fileName
 
-		image.mv(path,(error)=>{
+		image.mv(path, (error) => {
 			// error handling + console.log
-			if (error){
-				console.log("image error",error)
-				res.writeHead(500,{
-					'Content-Type':'application/json'
+			if (error) {
+				console.log("image error", error)
+				res.writeHead(500, {
+					'Content-Type': 'application/json'
 				})
-				res.end(JSON.stringify({status:'error',message:error}))
+				res.end(JSON.stringify({ status: 'error', message: error }))
 				return
 			}
 			// 200 response
-			res.writeHead(200,{
-				'Content-Type':'application/json'
+			res.writeHead(200, {
+				'Content-Type': 'application/json'
 			})
-			res.end(JSON.stringify({status:'success',path:'/img/houses/' + fileName}))
+			res.end(JSON.stringify({ status: 'success', path: '/img/houses/' + fileName }))
 
 		})
 
