@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import Layout from '../components/Layout'
 
-const Bookings = () => {
+const Bookings = (props) => {
   return (
     <Layout
       content={
@@ -67,3 +67,5 @@ Bookings.getInitialProps = async ctx => {
     bookings: response.data
   }
 }
+
+export default Bookings
