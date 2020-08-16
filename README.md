@@ -1,5 +1,5 @@
 # nextjsbnb
-
+https://next-js-server.herokuapp.com/
 npm run dev
 
 "scripts": {
@@ -8,5 +8,5 @@ npm run dev
     "start": "NODE_ENV=production node server.js"
   },
 
-
+  
   brew services start postgresql
